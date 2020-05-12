@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  height: 10vh;
+  width: 100vw;
+  background: lightgrey; 
+  border: 2px solid black;
+  padding: 1vw;
+  font-family: 'Squada One', cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 7vh;
+  padding-left: 4vw;
+}
+
+.user-info {
+  width: 30vw;
+  padding: 1vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main {
+  background: #c1cfd4;
+  border: 2px solid red;
+  width: 100vw;
+  height: 90vh;
+  font-family: 'Abel', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 2vh;
+}
+
+.data-container {
+  width: 70vw;
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activity-container {
+  width: 70vw;
+  height: 25vh;
+  background: #fc7404;
+}
+
+.sleep-container {
+  width: 70vw;
+  height: 25vh;
+  background: #481865;
+}
+
+.hydration-container {
+  width: 70vw;
+  height: 25vh;
+  background: #025d93;
+}
+
+.friends-container {
+  width: 23vw;
+  height: 84vh;
+  background: #86f4ee;
+}
