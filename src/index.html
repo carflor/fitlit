@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Activity Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Activity Tracker</h1>
+    <nav class="header">
+      <h1>Activity Tracker</h1>
+      <section class="user-info">
+        <section>
+          <p class="user-name">Mike</p>
+          <p class="date">10/02/2030</p>
+        </section>
+        <section>
+          <p class="user-address">mike lives here</p>
+          <p class="user-email">mike@gmail.com</p>
+        </section>
+      </section>
+    </nav>
+  <main>
+    <section class="data-container">
+      <section class="activity-container"></section>
+      <section class="hydration-container"></section>
+      <section class="sleep-container"></section>
+    </section>
+    <section class="friends-container"></section>
+  </main>
 
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/hydration.js"></script>
