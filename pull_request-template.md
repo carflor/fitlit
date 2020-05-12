@@ -11,7 +11,7 @@ Detailed Description:
 Why is this change required? What problem does it solve?
 
 
-Were there any challenges that arose while implementing this feature? If so, how were the addressed?
+Were there any challenges that arose while implementing this feature? If so, how were they addressed?
 
 
 Files modified:
