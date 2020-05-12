@@ -10,7 +10,9 @@ class User {
   }
 
   showFirstName() {
-    const firstName = this.name.split(' ').slice(0)
+    return this.name.split(' ')[0]
   }
 
 }
+
+module.exports = User
