@@ -1,26 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 const User = require('../src/User');
-// const testData = require('../test/test-data.js');
+const userTestData = require('../test/test-data');
 
 describe('User', function () {
   let user, user1;
     
   beforeEach(function() {
-    // user1 = userTestData[0]
-    user1 = {
-      "id": 1,
-      "name": "Luisa Hane",
-      "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
-      "email": "Diana.Hayes1@hotmail.com",
-      "strideLength": 4.3,
-      "dailyStepGoal": 10000,
-      "friends": [
-        16,
-        4,
-        8
-      ]
-    }
+    user1 = userTestData[0]
     user = new User(user1)
   })
 
@@ -57,7 +44,7 @@ describe('User', function () {
   })
 
   it('should have a property of friends', function () {
-    expect(user.friends).to.deep.equal([16, 4, 8])
+    expect(user.friends).to.deep.equal([2, 4, 3])
   })
 
   it('should only show the first name', function() {
