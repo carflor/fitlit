@@ -2,19 +2,20 @@ const userData = require('../data/users.js')
 
 class UserRepo {
   constructor(allUsers) {
-    this.data = allUsers;
+    this.allUsers = allUsers;
   }
 
   selectedUser(currentUserId) {
     // currentUserId needs to be built in dom
-    return this.allUsers.filter(user => user.id === currentUserId)
+    return this.allUsers.find(user => currentUserId === user.id)
   }
 
-  avgStepGoalUsers() {
-    return this.allUsers.reduce((acc, user) => {
-      (acc += user.dailyStepGoal) / this.allUsers.length
+  calculateAvgStepGoalUsers() {
+    const totalStepGoal = this.allUsers.reduce((acc, user) => {
+      (acc += user.dailyStepGoal) 
       return acc
     }, 0)
+    return totalStepGoal / this.allUsers.length
   }
 };
 
