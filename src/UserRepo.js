@@ -1,5 +1,3 @@
-const userData = require('../data/users.js')
-
 class UserRepo {
   constructor(allUsers) {
     this.allUsers = allUsers;
@@ -17,6 +15,8 @@ class UserRepo {
     }, 0)
     return totalStepGoal / this.allUsers.length
   }
-};
+}
 
-module.exports = UserRepo;
+if (typeof module !== 'undefined') {
+  module.exports = UserRepo;
+}
