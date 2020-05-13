@@ -1,21 +1,22 @@
-const userData = require('../data/users.js')
-
 class UserRepo {
-  constructor(data) {
-    this.data = data;
+  constructor(allUsers) {
+    this.allUsers = allUsers;
   }
 
-  selectedUser() {
-    return this.data.filter(datum => datum.id === currentUserId)
+  selectedUser(currentUserId) {
+    // currentUserId needs to be built in dom
+    return this.allUsers.find(user => currentUserId === user.id)
   }
 
-  avgStepGoalUsers() {
-    return this.data.reduce((acc, datum) => {
-      (acc += datum.dailyStepGoal)/this.data.length
+  calculateAvgStepGoalUsers() {
+    const totalStepGoal = this.allUsers.reduce((acc, user) => {
+      (acc += user.dailyStepGoal) 
       return acc
     }, 0)
+    return totalStepGoal / this.allUsers.length
   }
+}
 
-};
-
-module.exports = UserRepo;
+if (typeof module !== 'undefined') {
+  module.exports = UserRepo;
+}
