@@ -19,7 +19,8 @@ function startApp() {
 
 function pickUser() {
   const id = userData[0]
-  // const id = userData[Math.floor(Math.random * 50 )]
+  // fixed randomizer
+  // const id = userData[Math.floor(Math.random() * 50)]
   return id
 }
 
