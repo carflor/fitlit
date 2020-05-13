@@ -9,36 +9,44 @@ html {
 }
 
 nav {
-  height: 10vh;
+  height: 12vh;
   width: 100vw;
-  background: lightgrey; 
-  border: 2px solid black;
-  padding: 1vw;
-  font-family: 'Squada One', cursive;
+  background: #b3acac; 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-family: 'Changa', sans-serif;
 }
 
 h1 {
+  font-weight: 600;
   font-size: 7vh;
-  padding-left: 4vw;
+  padding-left: 2.5vw;
 }
 
 .user-info {
-  width: 30vw;
+  width: 58vw;
   padding: 1vw;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.user-details {
+  padding-top: 1vh;
+}
+
+.user-name {
+  text-align: left;
+  font-size: 5vh;
+  font-weight: 400;
 }
 
 main {
   background: #c1cfd4;
-  border: 2px solid red;
   width: 100vw;
-  height: 90vh;
+  height: 88vh;
+  font-weight: bolder;
   font-family: 'Abel', sans-serif;
   display: flex;
   flex-direction: row;
@@ -76,4 +84,16 @@ main {
   width: 23vw;
   height: 84vh;
   background: #86f4ee;
+}
+
+.user-goals {
+  text-align: center;
+}
+
+.title-date {
+  font-size: 2.7vh;
+}
+
+.user-step-goals {
+  font-size: 3vh;
 }
