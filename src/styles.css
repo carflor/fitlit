@@ -11,8 +11,7 @@ html {
 nav {
   height: 10vh;
   width: 100vw;
-  background: lightgrey; 
-  border: 2px solid black;
+  background: #b3acac; 
   padding: 1vw;
   font-family: 'Squada One', cursive;
   display: flex;
@@ -26,7 +25,7 @@ h1 {
 }
 
 .user-info {
-  width: 30vw;
+  width: 46vw;
   padding: 1vw;
   border: 1px solid black;
   display: flex;
@@ -36,7 +35,6 @@ h1 {
 
 main {
   background: #c1cfd4;
-  border: 2px solid red;
   width: 100vw;
   height: 90vh;
   font-family: 'Abel', sans-serif;
