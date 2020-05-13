@@ -6,7 +6,7 @@
     <title>Activity Tracker</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav class="header">
@@ -14,9 +14,8 @@
       <section class="user-info">
         <section>
           <p class="user-name"></p>
-          <p class="date"></p>
         </section>
-        <section>
+        <section class="user-details">
           <p class="user-address"></p>
           <p class="user-email"></p>
         </section>
@@ -28,15 +27,18 @@
       <section class="hydration-container">Hydration</section>
       <section class="sleep-container">Sleep</section>
     </section>
-    <section class="friends-goals-container">
-      <section class="user-goals">Step Goal For Today
+    <aside class="friends-goals-container">
+      <section class="user-goals">
+        <p class="title-date"></p>
         <p class="user-step-goals"></p>
+        <p class="all-users-step-goals"></p>
+        <p class="avg-all-Users">Avg Steps All Users</p>
 
       </section>
       <section class="user-friends"> Friends List
 
       </section>
-    </section>
+    </aside>
   </main>
     <script type="text/javascript" src="../src/UserRepo.js"></script>
     <script type="text/javascript" src="../src/User.js"></script>
