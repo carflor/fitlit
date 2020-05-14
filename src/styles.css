@@ -65,25 +65,25 @@ main {
 .activity-container {
   width: 70vw;
   height: 25vh;
-  background: #fc7404;
+  background: linear-gradient(to bottom right, #FF9933 11%, #FF0000 97%);
 }
 
 .sleep-container {
   width: 70vw;
   height: 25vh;
-  background: #481865;
+  background: linear-gradient(to top left, #481865 12%, #9966FF 56%);
 }
 
 .hydration-container {
   width: 70vw;
   height: 25vh;
-  background: #025d93;
+  background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
 }
 
 .friends-goals-container {
   width: 23vw;
   height: 84vh;
-  background: #86f4ee;
+  background: linear-gradient(to bottom right, #86F4EE 10%, #33CCCC 99%);
 }
 
 .user-goals {
