@@ -42,7 +42,15 @@ function displayUserHydrationData(data, user, date) {
 
   userHydrationToday.innerText = `Ounces drank today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)}`
   console.log(hydrationRepo.getUserWeekHydration(data, user, date))
-  userHydrationWeek.insertAdjacentHTML('afterBegin', `Ounces drank this week: ${hydrationRepo.getUserWeekHydration(data, user, date)}`)
+  userHydrationWeek.insertAdjacentHTML('afterBegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
+}
+
+function fixWeekHydrationDisplay(arr) {
+  const fixedArr = []
+  for (let i = 0; i < arr.length; i++) {
+    fixedArr.push(arr[i].toString().split('').slice(5).join(''))
+  }
+  return fixedArr.toString().split(',').join(', ')
 }
 
 startApp()
