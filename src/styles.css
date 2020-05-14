@@ -11,7 +11,7 @@ html {
 nav {
   height: 12vh;
   width: 100vw;
-  background: #b3acac; 
+  background: linear-gradient(to bottom right, #B3ACAC 0%, #CCFFFF 91%); 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,7 +43,7 @@ h1 {
 }
 
 main {
-  background: #c1cfd4;
+  background: linear-gradient(to bottom right, #C1CFD4 0%, #FFFFFF 91%);
   width: 100vw;
   height: 88vh;
   font-weight: bolder;
@@ -65,25 +65,25 @@ main {
 .activity-container {
   width: 70vw;
   height: 25vh;
-  background: #fc7404;
+  background: linear-gradient(to bottom right, #FF9933 11%, #FF0000 97%);
 }
 
 .sleep-container {
   width: 70vw;
   height: 25vh;
-  background: #481865;
+  background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
 .hydration-container {
   width: 70vw;
   height: 25vh;
-  background: #025d93;
+  background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
 }
 
 .friends-goals-container {
   width: 23vw;
   height: 84vh;
-  background: #86f4ee;
+  background: linear-gradient(to bottom right, #86F4EE 10%, #33CCCC 99%);
 }
 
 .user-goals {
