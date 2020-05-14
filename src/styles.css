@@ -11,7 +11,7 @@ html {
 nav {
   height: 12vh;
   width: 100vw;
-  background: #b3acac; 
+  background: linear-gradient(to bottom right, #B3ACAC 0%, #CCFFFF 91%); 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,7 +43,7 @@ h1 {
 }
 
 main {
-  background: #c1cfd4;
+  background: linear-gradient(to bottom right, #C1CFD4 0%, #FFFFFF 91%);
   width: 100vw;
   height: 88vh;
   font-weight: bolder;
@@ -71,7 +71,7 @@ main {
 .sleep-container {
   width: 70vw;
   height: 25vh;
-  background: linear-gradient(to top left, #481865 12%, #9966FF 56%);
+  background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
 .hydration-container {
