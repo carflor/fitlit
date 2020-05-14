@@ -5,10 +5,7 @@ class Hydration {
  
   getUserAvgOuncesToday(allData, user, date) {
     const drinksPerDate = allData.filter(data => date === data.date)
-    console.log('drinksper', drinksPerDate)
-    console.log('id in fn', user)
     const drinksUser = drinksPerDate.find(data => data.userID === user.id)
-    console.log('', drinksUser)
     return drinksUser.numOunces
   }
 
@@ -27,7 +24,7 @@ class Hydration {
     const todaysWater = userHydrationData.find(hydration => hydration.date === date)
     const index = userHydrationData.indexOf(todaysWater)
     for (let i = 0; i < 7; i++) {
-      weekData.push(userHydrationData[index - i])
+      weekData.push(`${userHydrationData[index - i].date}  : ${userHydrationData[index - i].numOunces}`)
     } 
     return weekData
   }
