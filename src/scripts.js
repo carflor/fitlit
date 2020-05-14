@@ -9,13 +9,15 @@ console.log('hydro data', hydrationData)
 
 function startApp() {
   const today = '2019/06/29'
-  const currentUserId = pickUser()
+  const currentUser = new User(pickUser())
   userRepo = new UserRepo(userData)
-  currentUser = new User(currentUserId)
+  // currentUser = new User(currentUserId)
   hydrationRepo = new Hydration(hydrationData)
-  console.log('current', currentUser)
+  console.log('currentUser', currentUser)
+  console.log('currentUserId', currentUser)
   displayUserData(currentUser, today)
-  displayUserHydrationData(hydrationData, currentUserId, today)
+
+  displayUserHydrationData(hydrationData, currentUser, today)
 }
 
 function pickUser() {
@@ -25,6 +27,7 @@ function pickUser() {
 }
 
 function displayUserData(user, date) {
+  console.log('user in display fn', user)
   const userName = document.querySelector('.user-name')
   const userDate = document.querySelector('.title-date')
   const userAddress = document.querySelector('.user-address')
@@ -43,9 +46,12 @@ function displayUserData(user, date) {
 
 function displayUserHydrationData(data, user, date) {
   const userHydrationToday = document.querySelector('.user-hydration-today')
+  const userHydrationWeek = document.querySelector('.user-hydration-week')
   console.log('user in fn', user)
   userHydrationToday.innerText = `Ounces drank today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)}`
-  
+  console.log(hydrationRepo.getUserWeekHydration(data, user, date))
+  userHydrationWeek.insertAdjacentHTML('afterBegin', `Ounces drank this week: ${hydrationRepo.getUserWeekHydration(data, user, date)}`)
+
 }
 
 startApp()
