@@ -6,7 +6,7 @@ let hydrationRepo;
 
 function startApp() {
   const today = '2019/06/29'
-  const currentUser = new User(pickUser())
+  currentUser = new User(pickUser())
   userRepo = new UserRepo(userData)
   hydrationRepo = new Hydration(hydrationData)
   displayUserData(currentUser, today)
