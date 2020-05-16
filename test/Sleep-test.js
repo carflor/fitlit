@@ -21,12 +21,16 @@ describe('Sleep', function () {
     expect(Sleep).to.be.a('function')
   })
 
-  it('should be an instance of sleep', function() {
+  it('should be an instance of Sleep', function() {
     expect(sleep).to.be.an.instanceOf(Sleep)
   })
 
-  it('should have a property of data', function() {
+  it('should have a property of sleepData', function() {
     expect(sleep.sleepData).to.equal(sleepData)
+  })
+
+  it('should have a property of dataPerUser', function() {
+    expect(sleep.grabDataPerUser()).to.deep.equal(sleep.dataPerUser)
   })
 
   it('should be able to get the avg sleep hours for a user', function() {
