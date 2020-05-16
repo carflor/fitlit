@@ -20,7 +20,6 @@ function pickUser() {
 }
 
 function displayUserData(user, date) {
-  console.log('user in display fn', user)
   const userName = document.querySelector('.user-name')
   const userDate = document.querySelector('.title-date')
   const userAddress = document.querySelector('.user-address')
@@ -53,4 +52,4 @@ function fixWeekHydrationDisplay(arr) {
   return fixedArr.toString().split(',').join(', ')
 }
 
-startApp()
+startApp();
