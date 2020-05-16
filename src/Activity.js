@@ -17,7 +17,15 @@ class Activity {
 
   // SINGLE USER SECTION
 
-  
+  getMilesByDate(allData, user, date) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateEntry = filtered.find(data => data.date === date)
+    const userMile = 5280/user.strideLength
+    const userDistance = dateEntry.numSteps/userMile
+    return Number(userDistance.toFixed(2))
+  }
+
+
   
 
 
