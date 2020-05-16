@@ -57,10 +57,6 @@ function fixWeekHydrationDisplay(arr) {
 }
 
 function displayUserSleepData(data, user, date) {
-  console.log(data)
-  // STEP 3
-  // For a user, their all-time average sleep quality
-  // for a user, all-time average number of hours slept
   const userSleepHoursToday = document.querySelector('.user-hours-slept-today')
   const userSleepQualityToday = document.querySelector('.user-sleep-quality-today')
   const userWeekHoursSlept = document.querySelector('.user-week-hours-slept')
