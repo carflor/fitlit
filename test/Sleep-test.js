@@ -6,9 +6,11 @@ const userTestData = require('../test/user-test-data');
 const sleepTestData = require('./sleep-test-data')
 
 describe('Sleep', function () {
-  let today, sleepData, user, user1, sleep;
+  let today, yesterday, sleepData, user, user1, sleep;
 
   beforeEach(function () {
+    today = '2019/09/22'
+    yesterday = '2019/09/21'
     sleepData = sleepTestData
     sleep = new Sleep(sleepData)
     user1 = userTestData[0]
@@ -80,4 +82,14 @@ describe('Sleep', function () {
       { userID: 3, date: '2019/09/22', hoursSlept: 5.3, sleepQuality: 4.4 }
     ])
   })
+
+  it('should return users that slept the least for a given day', function() {
+    expect(sleep.getWorstSleptUserPerDate(sleepData, yesterday)).to.deep.equal([
+      { userID: 3, date: '2019/09/21', hoursSlept: 6.1, sleepQuality: 3.5 }
+    ])
+    expect(sleep.getWorstSleptUserPerDate(sleepData, today)).to.deep.equal([
+      { userID: 1, date: '2019/09/22', hoursSlept: 4.6, sleepQuality: 1.4 }
+    ])
+  })
+
 });
