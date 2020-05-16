@@ -33,4 +33,10 @@ describe('Activity', function () {
     expect(activity.grabDataPerUser()).to.deep.equal(activity.dataPerUser)
   })
 
+  it('should calculate numbers of miles per date for user', function() {
+    expect(activity.getMilesByDate(activityData, user, today)).to.equal(6.57)
+  })
+
+  
+
 });
