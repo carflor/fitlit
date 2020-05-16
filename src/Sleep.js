@@ -1,8 +1,8 @@
 class Sleep {
   constructor(sleepData) {
-    this.sleepData = sleepData;
+      this.sleepData = sleepData;
   }
-
+  // SINGLE USER SECTION
   getUserAvgSleepHours(allData, user) {
     const totalUserSleepHours = allData.filter(data => user.id === data.userID)
     const result = totalUserSleepHours.reduce((acc, sleep) => {
@@ -62,15 +62,38 @@ class Sleep {
     return weekSleep
   }
 
-  getAllUsersTopWeekSleepQuality(allData, date) {
-    const weekArr = []
-    const topWeekSleep = []
-    const topSleepData = allData.filter(data => data.sleepQuality > 3)
-    // NEEDS WORK HERE 
-    
+  // ALL USERS SECTIONS
+  getAllUsersSleepQualityAbove3(allData, date) {
+    1) use this.getUserWeekSleepQuality to grab a weeks worth of sleep quality
+    2) calulate the avg of sleep quality depending on userSleepData[index - i].sleepQuality
+    per user 
+
+
+
+
+
+    const avgOver3 = []
+    // const topWeekSleep = []
+
+    const reduction = allData.reduce((acc, datum) => {
+      const day = datum
+      return acc
+    }, [])
+
+
+    // const topSleepData = allData.filter(data => data.sleepQuality > 3)
+
+
+    // make an arr of the last seven days
+    // for loop over topSleepData 7 times
+    // in topSleepData find the date that matches DATE 
+    // unshift that match.date into weekArr
+    // do the same
+    // if match.date === weekArry[0].date
+
     const todaysSleep = topSleepData.find(sleep => sleep.date === date)
     const index = topSleepData.indexOf(todaysSleep)
-    for (let i = 0; i < todaysSleep && i.date !== ; i++) {
+    for (let i = 0; i < todaysSleep && i.date !==; i++) {
       weekSleep.push()
     } 
     return weekSleep
