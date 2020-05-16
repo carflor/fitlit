@@ -77,20 +77,20 @@ class Sleep {
   }
 
   getBestUsersSleepQualityByDate(allData, date) {
-  const sleepByID = Object.keys(this.dataPerUser)
-  // console.log(sleepByID)
-  const result = sleepByID.reduce((acc, user) => {
-  console.log(this.dataPerUser[user], 'dataPerUser[user]')
-  console.log(sleepByID,'sleepbyID')
-  const finder = this.dataPerUser[user].find(user => user.date = date)
-  const dateIndex = this.dataPerUser[user].indexOf(finder)
-  console.log(finder, 'finder')
-  console.log(dateIndex,'dateIndex')
-    return acc
-  }, [])
-// Find the date that matches 'this.dataPerUser[date] in the array
-// get the index of the item with matching date^ 
-// .slice this return down to 7 days
+    const sleepByID = Object.keys(this.dataPerUser)
+    // console.log(sleepByID)
+    const result = sleepByID.reduce((acc, user) => {
+      console.log(this.dataPerUser[user], 'dataPerUser[user]')
+      console.log(sleepByID,'sleepbyID')
+      const finder = this.dataPerUser[user].find(user => user.date === date)
+      const dateIndex = this.dataPerUser[user].indexOf(finder)
+      console.log(finder, 'finder')
+      console.log(dateIndex,'dateIndex')
+      return acc
+    }, [])
+  // Find the date that matches 'this.dataPerUser[date] in the array
+  // get the index of the item with matching date^ 
+  // .slice this return down to 7 days
   }
 };
 
