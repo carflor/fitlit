@@ -103,6 +103,12 @@ class Sleep {
     return filtered
   }
 
+  getWorstSleptUserPerDate(allData, date) {
+    const datedData = allData.filter(sleep => sleep.date === date)
+    const sorted = datedData.sort((a, b) => a.hoursSlept - b.hoursSlept)[0]
+    const filtered = datedData.filter(sleep => sleep.hoursSlept === sorted.hoursSlept)
+    return filtered
+  }
 }
 
 if (typeof module !== 'undefined') {
