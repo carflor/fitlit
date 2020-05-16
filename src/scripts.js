@@ -58,14 +58,22 @@ function fixWeekHydrationDisplay(arr) {
 
 function displayUserSleepData(data, user, date) {
   console.log(data)
-  // STEP 1
-  // Display last day user SLEEP QUALITY + HOURS SLEPT
-  // getUserHoursSleptForDate(allData, user, date)
+  // STEP 3
+  // For a user, their all-time average sleep quality
+  // for a user, all-time average number of hours slept
   const userSleepHoursToday = document.querySelector('.user-hours-slept-today')
   const userSleepQualityToday = document.querySelector('.user-sleep-quality-today')
+  const userWeekHoursSlept = document.querySelector('.user-week-hours-slept')
+  const userWeekSleepQuality = document.querySelector('.user-week-sleep-quality')
+  const userAvgHoursSlept = document.querySelector('.user-hours-slept-avg')
+  const userAvgSleepQuality = document.querySelector('.user-sleep-quality-avg')
 
   userSleepHoursToday.insertAdjacentHTML('afterBegin', `Hours Slept Today: ${sleepRepo.getUserHoursSleptForDate(data, user, date)}`)
   userSleepQualityToday.insertAdjacentHTML('afterBegin', `Sleep Quality Rating Today: ${sleepRepo.getUserSleepQualityForDate(data, user, date)}/5`)
+  userWeekHoursSlept.insertAdjacentHTML('afterBegin', `Hours Slept Per Day This Week: ${sleepRepo.getUserWeekHoursSlept(data, user, date)}`)
+  userWeekSleepQuality.insertAdjacentHTML('afterBegin', `Sleep Rating Per Day This Week: ${sleepRepo.getUserWeekSleepQuality(data, user, date)}`)
+  userAvgHoursSlept.insertAdjacentHTML('afterBegin', `Avg Sleep Time: ${sleepRepo.getUserAvgSleepHours(data, user)}`)
+  userAvgSleepQuality.insertAdjacentHTML('afterBegin', `Avg Sleep Rating: ${sleepRepo.getUserAvgSleepQuality(data, user)}`)
 }
 
 startApp();
