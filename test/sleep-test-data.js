@@ -13,7 +13,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/14",
     "hoursSlept": 4.8,
-    "sleepQuality": 2.2
+    "sleepQuality": 5
   }, {
     "userID": 1,
     "date": "2019/09/15",
@@ -28,7 +28,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/15",
     "hoursSlept": 8.2,
-    "sleepQuality": 1.5
+    "sleepQuality": 4
   }, {
     "userID": 1,
     "date": "2019/09/16",
@@ -58,7 +58,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/17",
     "hoursSlept": 8.4,
-    "sleepQuality": 1.8
+    "sleepQuality": 4.8
   }, {
     "userID": 1,
     "date": "2019/09/18",
@@ -88,7 +88,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/19",
     "hoursSlept": 7.4,
-    "sleepQuality": 1.7
+    "sleepQuality": 4.7
   }, {
     "userID": 1,
     "date": "2019/09/20",
@@ -103,7 +103,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/20",
     "hoursSlept": 4.5,
-    "sleepQuality": 1.7
+    "sleepQuality": 3.7
   }, {
     "userID": 1,
     "date": "2019/09/21",
@@ -118,7 +118,7 @@ const sleepTestData = [
     "userID": 3,
     "date": "2019/09/21",
     "hoursSlept": 6.1,
-    "sleepQuality": 2.5
+    "sleepQuality": 3.5
   }, {
     "userID": 1,
     "date": "2019/09/22",
@@ -127,7 +127,7 @@ const sleepTestData = [
   }, {
     "userID": 2,
     "date": "2019/09/22",
-    "hoursSlept": 5.1,
+    "hoursSlept": 5.3,
     "sleepQuality": 4.6
   }, {
     "userID": 3,
