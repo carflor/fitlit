@@ -1,8 +1,5 @@
 class Sleep {
   constructor(sleepData) {
-<<<<<<< HEAD
-      this.sleepData = sleepData;
-=======
     this.sleepData = sleepData;
     this.dataPerUser = this.grabDataPerUser()
   }
@@ -16,7 +13,6 @@ class Sleep {
       return acc
     }, {})
     return result
->>>>>>> master
   }
   // SINGLE USER SECTION
   getUserAvgSleepHours(allData, user) {
@@ -81,36 +77,23 @@ class Sleep {
   }
 
   getBestUsersSleepQualityByDate(allData, date) {
-const sleepByID = Object.keys(this.dataPerUser)
-// console.log(sleepByID)
-const result = sleepByID.reduce((acc, user) => {
-console.log(this.dataPerUser[user], 'dataPerUser[user]')
-// console.log(sleepByID,'sleepbyID')
-const finder = this.dataPerUser[user].find(user => user.date = date)
-const dateIndex = this.dataPerUser[user].indexOf(finder)
-console.log(finder, 'finder')
-console.log(dateIndex,'dateIndex')
-  return acc
-}, [])
+  const sleepByID = Object.keys(this.dataPerUser)
+  // console.log(sleepByID)
+  const result = sleepByID.reduce((acc, user) => {
+  console.log(this.dataPerUser[user], 'dataPerUser[user]')
+  console.log(sleepByID,'sleepbyID')
+  const finder = this.dataPerUser[user].find(user => user.date = date)
+  const dateIndex = this.dataPerUser[user].indexOf(finder)
+  console.log(finder, 'finder')
+  console.log(dateIndex,'dateIndex')
+    return acc
+  }, [])
 // Find the date that matches 'this.dataPerUser[date] in the array
 // get the index of the item with matching date^ 
 // .slice this return down to 7 days
-//     const weekArr = []
-//     const topWeekSleep = []
-//     const topSleepData = allData.filter(data => data.sleepQuality > 3)
-//     // NEEDS WORK HERE 
-    
-//     const todaysSleep = topSleepData.find(sleep => sleep.date === date)
-//     const index = topSleepData.indexOf(todaysSleep)
-//     for (let i = 0; i < todaysSleep && i.date !==; i++) {
-//       weekSleep.push()
-//     } 
-//     return weekSleep
-//   }
-  
   }
+};
 
-}
 if (typeof module !== 'undefined') {
   module.exports = Sleep;
 }
