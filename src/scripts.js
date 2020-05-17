@@ -3,14 +3,17 @@
 let currentUser;
 let userRepo;
 let hydrationRepo;
+let sleepRepo;
 
 function startApp() {
   const today = '2019/06/29'
   currentUser = new User(pickUser())
   userRepo = new UserRepo(userData)
   hydrationRepo = new Hydration(hydrationData)
+  sleepRepo = new Sleep(sleepData)
   displayUserData(currentUser, today)
   displayUserHydrationData(hydrationData, currentUser, today)
+  displayUserSleepData(sleepData, currentUser, today)
 }
 
 function pickUser() {
@@ -20,7 +23,6 @@ function pickUser() {
 }
 
 function displayUserData(user, date) {
-  console.log('user in display fn', user)
   const userName = document.querySelector('.user-name')
   const userDate = document.querySelector('.title-date')
   const userAddress = document.querySelector('.user-address')
@@ -37,11 +39,12 @@ function displayUserData(user, date) {
 }
 
 function displayUserHydrationData(data, user, date) {
+  // console.log('hydro data', data)
   const userHydrationToday = document.querySelector('.user-hydration-today')
   const userHydrationWeek = document.querySelector('.user-hydration-week')
 
   userHydrationToday.innerText = `Ounces drank today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)}`
-  console.log(hydrationRepo.getUserWeekHydration(data, user, date))
+  // console.log(hydrationRepo.getUserWeekHydration(data, user, date))
   userHydrationWeek.insertAdjacentHTML('afterBegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
 }
 
@@ -53,4 +56,20 @@ function fixWeekHydrationDisplay(arr) {
   return fixedArr.toString().split(',').join(', ')
 }
 
-startApp()
+function displayUserSleepData(data, user, date) {
+  const userSleepHoursToday = document.querySelector('.user-hours-slept-today')
+  const userSleepQualityToday = document.querySelector('.user-sleep-quality-today')
+  const userWeekHoursSlept = document.querySelector('.user-week-hours-slept')
+  const userWeekSleepQuality = document.querySelector('.user-week-sleep-quality')
+  const userAvgHoursSlept = document.querySelector('.user-hours-slept-avg')
+  const userAvgSleepQuality = document.querySelector('.user-sleep-quality-avg')
+
+  userSleepHoursToday.insertAdjacentHTML('afterBegin', `Hours Slept Today: ${sleepRepo.getUserHoursSleptForDate(data, user, date)}`)
+  userSleepQualityToday.insertAdjacentHTML('afterBegin', `Sleep Quality Rating Today: ${sleepRepo.getUserSleepQualityForDate(data, user, date)}/5`)
+  userWeekHoursSlept.insertAdjacentHTML('afterBegin', `Hours Slept Per Day This Week: ${sleepRepo.getUserWeekHoursSlept(data, user, date)}`)
+  userWeekSleepQuality.insertAdjacentHTML('afterBegin', `Sleep Rating Per Day This Week: ${sleepRepo.getUserWeekSleepQuality(data, user, date)}`)
+  userAvgHoursSlept.insertAdjacentHTML('afterBegin', `Avg Sleep Time: ${sleepRepo.getUserAvgSleepHours(data, user)}`)
+  userAvgSleepQuality.insertAdjacentHTML('afterBegin', `Avg Sleep Rating: ${sleepRepo.getUserAvgSleepQuality(data, user)}`)
+}
+
+startApp();

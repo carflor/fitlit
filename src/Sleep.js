@@ -15,6 +15,8 @@ class Sleep {
     return result
   }
 
+  // SINGLE USER SECTION
+
   getUserAvgSleepHours(allData, user) {
     const totalUserSleepHours = allData.filter(data => user.id === data.userID)
     const result = totalUserSleepHours.reduce((acc, sleep) => {
@@ -45,23 +47,15 @@ class Sleep {
     return Math.floor(userSleepDataForDate.sleepQuality)
   }
 
-  getAllUsersAvgSleepQuality(allData) {
-    const allUsersAvg = allData.reduce((acc, sleep) => {
-      acc += sleep.sleepQuality 
-      return acc
-    }, 0) / allData.length
-    return Math.floor(allUsersAvg)
-  }
-
   getUserWeekSleepQuality(allData, user, date) {
     const weekSleep = []
     const userSleepData = allData.filter(data => user.id === data.userID)
     const todaysSleep = userSleepData.find(sleep => sleep.date === date)
     const index = userSleepData.indexOf(todaysSleep)
+    // maybe use slice instead of damn for loop
     for (let i = 0; i < 7; i++) {
       weekSleep.push(`${userSleepData[index - i].date}  : ${userSleepData[index - i].sleepQuality}/5`)
     } 
-
     return weekSleep
   }
 
@@ -70,43 +64,53 @@ class Sleep {
     const userSleepData = allData.filter(data => user.id === data.userID)
     const todaysSleep = userSleepData.find(sleep => sleep.date === date)
     const index = userSleepData.indexOf(todaysSleep)
+    // maybe use slice instead of damn for loop
     for (let i = 0; i < 7; i++) {
       weekSleep.push(`${userSleepData[index - i].date}  : ${userSleepData[index - i].hoursSlept}`)
     }
     return weekSleep
   }
 
-  getBestUsersSleepQualityByDate(allData, date) {
-const sleepByID = Object.keys(this.dataPerUser)
-// console.log(sleepByID)
-const result = sleepByID.reduce((acc, user) => {
-console.log(this.dataPerUser[user], 'dataPerUser[user]')
-// console.log(sleepByID,'sleepbyID')
-const finder = this.dataPerUser[user].find(user => user.date = date)
-const dateIndex = this.dataPerUser[user].indexOf(finder)
-console.log(finder, 'finder')
-console.log(dateIndex,'dateIndex')
-  return acc
-}, [])
-// Find the date that matches 'this.dataPerUser[date] in the array
-// get the index of the item with matching date^ 
-// .slice this return down to 7 days
-//     const weekArr = []
-//     const topWeekSleep = []
-//     const topSleepData = allData.filter(data => data.sleepQuality > 3)
-//     // NEEDS WORK HERE 
-    
-//     const todaysSleep = topSleepData.find(sleep => sleep.date === date)
-//     const index = topSleepData.indexOf(todaysSleep)
-//     for (let i = 0; i < todaysSleep && i.date !==; i++) {
-//       weekSleep.push()
-//     } 
-//     return weekSleep
-//   }
-  
+  // ALL USERS METHODS 
+
+  getAllUsersAvgSleepQuality(allData) {
+    const allUsersAvg = allData.reduce((acc, sleep) => {
+      acc += sleep.sleepQuality 
+      return acc
+    }, 0) / allData.length
+    return Math.floor(allUsersAvg)
   }
 
+  getBestUsersSleepQualityByDate(date) {
+    const sleepByID = Object.keys(this.dataPerUser)
+    const result = sleepByID.reduce((acc, user) => {
+      const finder = this.dataPerUser[user].find(user => user.date === date)
+      const dateIndex = this.dataPerUser[user].indexOf(finder)
+      let weekData = this.dataPerUser[user].slice(dateIndex - 6, dateIndex + 1)
+      const bestSleepers = this.getAllUsersAvgSleepQuality(weekData)
+      if (bestSleepers > 3) {
+        acc.push(this.dataPerUser[user][0].userID)
+      }
+      return acc
+    }, [])
+    return result
+  }
+
+  getUsersMostHoursSleptPerDate(allData, date) {
+    const datedData = allData.filter(sleep => sleep.date === date)
+    const sorted = datedData.sort((a, b) => b.hoursSlept - a.hoursSlept)[0]
+    const filtered = datedData.filter(sleep => sleep.hoursSlept === sorted.hoursSlept)
+    return filtered
+  }
+
+  getWorstSleptUserPerDate(allData, date) {
+    const datedData = allData.filter(sleep => sleep.date === date)
+    const sorted = datedData.sort((a, b) => a.hoursSlept - b.hoursSlept)[0]
+    const filtered = datedData.filter(sleep => sleep.hoursSlept === sorted.hoursSlept)
+    return filtered
+  }
 }
+
 if (typeof module !== 'undefined') {
   module.exports = Sleep;
 }
