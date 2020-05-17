@@ -65,4 +65,9 @@ describe('Activity', function () {
   it('should provide all time stair record for user', function() {
     expect(activity.getUserStairRecord(activityData, user)).to.equal(44)
   })
+
+  it('should provide avg steps, minutes active and flights of stairs by date for all users', function() {
+    expect(activity.getAllUserAvgData(activityData, yesterday)).to.deep.equal([ 7303, 158, 27 ])
+    expect(activity.getAllUserAvgData(activityData, today)).to.deep.equal([ 6245, 173, 22 ])
+  })
 });
