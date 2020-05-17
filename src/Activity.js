@@ -66,6 +66,36 @@ class Activity {
     // does this require the date to be displayed for the record?
   }
 
+  getAllUserAvgData(allData, date) {
+    // create helper function that is generic avg template fn
+    // and we pass in the three diff measures
+    const dateData = allData.filter(data => data.date === date)
+    console.log(dateData)
+    const results = []
+    const avgSteps = dateData.reduce((acc, user) => {
+      acc += user.numSteps
+      return acc
+    }, 0) / dateData.length
+    results.push(Math.floor(avgSteps))
+    const avgMinActive = dateData.reduce((acc, user) => {
+      acc += user.minutesActive
+      return acc
+    }, 0) / dateData.length
+    results.push(Math.floor(avgMinActive))
+    const avgStairs = dateData.reduce((acc, user) => {
+      acc += user.flightsOfStairs
+      return acc
+    }, 0) / dateData.length
+    results.push(Math.floor(avgStairs))
+    console.log(results)
+    return results
+  }
+
+//   For all users, what is the average number of:
+
+//  stairs climbed for a specified date
+//  steps taken for a specific date
+//  minutes active for a specific date
   
 }
 
