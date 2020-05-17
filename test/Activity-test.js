@@ -58,8 +58,11 @@ describe('Activity', function () {
     expect(activity.getUserStepGoalAchievement(activityData, user, twoDaysAgo)).to.equal(`Nice job! You completed your step goal for today!`)
   })
 
-  it('should ', function() {
-   
+  it('should provide dates user achieved step goal', function() {
+    expect(activity.getUserStepGoalWins(activityData, user)).to.deep.equal([ '2019/09/19', '2019/09/20' ])
   })
 
+  it('should provide all time stair record for user', function() {
+    expect(activity.getUserStairRecord(activityData, user)).to.equal(44)
+  })
 });
