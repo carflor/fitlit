@@ -16,7 +16,6 @@ class Activity {
   }
 
   // SINGLE USER SECTION
-
   getMilesByDate(allData, user, date) {
     const filtered = allData.filter(data => data.userID === user.id)
     const dateEntry = filtered.find(data => data.date === date)
@@ -66,36 +65,44 @@ class Activity {
     // does this require the date to be displayed for the record?
   }
 
-  getAllUserAvgData(allData, date) {
-    // create helper function that is generic avg template fn
-    // and we pass in the three diff measures
-    const dateData = allData.filter(data => data.date === date)
-    console.log(dateData)
-    const results = []
-    const avgSteps = dateData.reduce((acc, user) => {
-      acc += user.numSteps
-      return acc
-    }, 0) / dateData.length
-    results.push(Math.floor(avgSteps))
-    const avgMinActive = dateData.reduce((acc, user) => {
-      acc += user.minutesActive
-      return acc
-    }, 0) / dateData.length
-    results.push(Math.floor(avgMinActive))
-    const avgStairs = dateData.reduce((acc, user) => {
-      acc += user.flightsOfStairs
-      return acc
-    }, 0) / dateData.length
-    results.push(Math.floor(avgStairs))
-    console.log(results)
-    return results
+  calculateAvgs(total, numUsers) {
+    let keys = Object.keys(total)
+    return keys.map(key => Math.floor(total[key] / numUsers))
   }
 
-//   For all users, what is the average number of:
-
-//  stairs climbed for a specified date
-//  steps taken for a specific date
-//  minutes active for a specific date
+  getAllUserAvgData(allData, date) {
+    const dateData = allData.filter(data => data.date === date)
+    const userTotal = dateData.reduce((acc, user) => {
+      acc.numSteps += user.numSteps
+      acc.minutesActive += user.minutesActive
+      acc.flightsOfStairs += user.flightsOfStairs
+      return acc
+    }, {
+      'numSteps': 0,
+      'minutesActive': 0,
+      'flightsOfStairs': 0
+    })
+    return this.calculateAvgs(userTotal, dateData.length)
+    
+    // const results = []
+    // const avgSteps = dateData.reduce((acc, user) => {
+    //   acc += user.numSteps
+    //   return acc
+    // }, 0) / dateData.length
+    // results.push(Math.floor(avgSteps))
+    // const avgMinActive = dateData.reduce((acc, user) => {
+    //   acc += user.minutesActive
+    //   return acc
+    // }, 0) / dateData.length
+    // results.push(Math.floor(avgMinActive))
+    // const avgStairs = dateData.reduce((acc, user) => {
+    //   acc += user.flightsOfStairs
+    //   return acc
+    // }, 0) / dateData.length
+    // results.push(Math.floor(avgStairs))
+    // console.log(results)
+    // return results
+  }
   
 }
 
