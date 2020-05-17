@@ -53,8 +53,20 @@ class Activity {
     }
   }
   
+  getUserStepGoalWins(allData, user) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateWins = filtered.filter(data => data.numSteps > user.dailyStepGoal).map(data => {return data.date})
+    return dateWins
+  }
 
+  getUserStairRecord(allData, user) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const sorted = filtered.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0]
+    return sorted.flightsOfStairs
+    // does this require the date to be displayed for the record?
+  }
 
+  
 }
 
 if (typeof module !== 'undefined') {
