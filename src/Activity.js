@@ -65,6 +65,7 @@ class Activity {
     // does this require the date to be displayed for the record?
   }
 
+  // ALL USERS SECTION
   calculateAvgs(total, numUsers) {
     let keys = Object.keys(total)
     return keys.map(key => Math.floor(total[key] / numUsers))
@@ -83,25 +84,6 @@ class Activity {
       'flightsOfStairs': 0
     })
     return this.calculateAvgs(userTotal, dateData.length)
-    
-    // const results = []
-    // const avgSteps = dateData.reduce((acc, user) => {
-    //   acc += user.numSteps
-    //   return acc
-    // }, 0) / dateData.length
-    // results.push(Math.floor(avgSteps))
-    // const avgMinActive = dateData.reduce((acc, user) => {
-    //   acc += user.minutesActive
-    //   return acc
-    // }, 0) / dateData.length
-    // results.push(Math.floor(avgMinActive))
-    // const avgStairs = dateData.reduce((acc, user) => {
-    //   acc += user.flightsOfStairs
-    //   return acc
-    // }, 0) / dateData.length
-    // results.push(Math.floor(avgStairs))
-    // console.log(results)
-    // return results
   }
   
 }
