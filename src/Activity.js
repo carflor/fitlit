@@ -80,6 +80,21 @@ class Activity {
     // does this require the date to be displayed for the record?
   }
 
+  formatActivityDisplay(weeklyData) {
+    const formattedWeek = weeklyData.map(data => {
+      return `${data.date}: Steps - ${data.numSteps}, Minutes Active - ${data.minutesActive}, Stairs - ${data.flightsOfStairs}`
+    })
+    return formattedWeek
+  } 
+
+  getUserWeekActivity(allData, user, date) {
+    const userActivityData = allData.filter(data => user.id === data.userID)
+    const todaysActivity = userActivityData.find(activity => activity.date === date)
+    const dateIndex = userActivityData.indexOf(todaysActivity)
+    let weekData = userActivityData.slice(dateIndex - 6, dateIndex + 1)
+    return this.formatActivityDisplay(weekData)
+  }
+
   // ALL USERS SECTION
   calculateAvgs(total, numUsers) {
     let keys = Object.keys(total)
