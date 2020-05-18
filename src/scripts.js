@@ -4,6 +4,7 @@ let currentUser;
 let userRepo;
 let hydrationRepo;
 let sleepRepo;
+let activityRepo;
 
 function startApp() {
   const today = '2019/06/29'
@@ -11,9 +12,12 @@ function startApp() {
   userRepo = new UserRepo(userData)
   hydrationRepo = new Hydration(hydrationData)
   sleepRepo = new Sleep(sleepData)
+  activityRepo = new Activity(activityData)
   displayUserData(currentUser, today)
   displayUserHydrationData(hydrationData, currentUser, today)
   displayUserSleepData(sleepData, currentUser, today)
+  displayUserActivityData(activityData, currentUser, today)
+
 }
 
 function pickUser() {
@@ -70,6 +74,18 @@ function displayUserSleepData(data, user, date) {
   userWeekSleepQuality.insertAdjacentHTML('afterBegin', `Sleep Rating Per Day This Week: ${sleepRepo.getUserWeekSleepQuality(data, user, date)}`)
   userAvgHoursSlept.insertAdjacentHTML('afterBegin', `Avg Sleep Time: ${sleepRepo.getUserAvgSleepHours(data, user)}`)
   userAvgSleepQuality.insertAdjacentHTML('afterBegin', `Avg Sleep Rating: ${sleepRepo.getUserAvgSleepQuality(data, user)}`)
+}
+
+function displayUserActivityData(activityData, currentUser, today) {
+  const userNumberStepsToday = document.querySelector('.user-number-steps-today')
+  const displayUserMilesWalked = document.querySelector('.display-user-miles-walked')
+  const userComparisonAllUsers = document.querySelector('.user-comparison-all-users')
+  const userWeeklyStats = document.querySelector('.user-weekly-stats')
+  // Did we ever write this functionality?
+  userNumberStepsToday.insertAdjacentHTML('afterbegin', `Steps Today: ${currentUser.numSteps}`)
+  displayUserMilesWalked.insertAdjacentHTML('afterbegin', `Miles walked today: ${activityRepo.getMilesByDate(activityData, currentUser, today)}`)
+  userComparisonAllUsers.insertAdjacentHTML('afterbegin', `Did you meet your goals: ${activityRepo.getUserStepGoalAchievement(activityData, currentUser, today)}`)
+  userWeeklyStats.insertAdjacentHTML('afterBegin', `Your weekly stats: ${activityRepo.getAllUserAvgData(activityData, today)}`)
 }
 
 startApp();

@@ -70,7 +70,8 @@ describe('Activity', function () {
     expect(activity.getAllUserAvgData(activityData, yesterday)).to.deep.equal([ 7303, 158, 27 ])
     expect(activity.getAllUserAvgData(activityData, today)).to.deep.equal([ 6245, 173, 22 ])
   })
-  it('Should find the greatest stair climber amongst all users', function() {
+
+  it('should find the greatest stair climber amongst all users', function() {
     expect(activity.bestStairClimberEver(activityData)).to.deep.equal(45)
   })
 });
