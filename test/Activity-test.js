@@ -34,6 +34,11 @@ describe('Activity', function () {
     expect(activity.grabDataPerUser()).to.deep.equal(activity.dataPerUser)
   })
 
+  it('should have a property of dataPerUser', function() {
+    expect(activity.getUserStepsForDate(activityData, user, yesterday)).to.equal(5711)
+    expect(activity.getUserStepsForDate(activityData, user, today)).to.equal(8072)
+  })
+
   it('should calculate numbers of miles per date for user', function() {
     expect(activity.getMilesByDate(activityData, user, yesterday)).to.equal(4.65)
     expect(activity.getMilesByDate(activityData, user, today)).to.equal(6.57)
