@@ -72,7 +72,6 @@ class Sleep {
   }
 
   // ALL USERS METHODS 
-
   getAllUsersAvgSleepQuality(allData) {
     const allUsersAvg = allData.reduce((acc, sleep) => {
       acc += sleep.sleepQuality 
@@ -81,7 +80,7 @@ class Sleep {
     return Math.floor(allUsersAvg)
   }
 
-  getBestUsersSleepQualityByDate(date) {
+  getBestUsersSleepQualityByDate(allData, user, date) {
     const sleepByID = Object.keys(this.dataPerUser)
     const result = sleepByID.reduce((acc, user) => {
       const finder = this.dataPerUser[user].find(user => user.date === date)
@@ -96,18 +95,18 @@ class Sleep {
     return result
   }
 
-  getUsersMostHoursSleptPerDate(allData, date) {
+  getUsersMostHoursSleptPerDate(allData, user, date) {
     const datedData = allData.filter(sleep => sleep.date === date)
     const sorted = datedData.sort((a, b) => b.hoursSlept - a.hoursSlept)[0]
     const filtered = datedData.filter(sleep => sleep.hoursSlept === sorted.hoursSlept)
     return filtered
   }
 
-  getWorstSleptUserPerDate(allData, date) {
+  getWorstSleptPerDate(allData, user, date) {
     const datedData = allData.filter(sleep => sleep.date === date)
     const sorted = datedData.sort((a, b) => a.hoursSlept - b.hoursSlept)[0]
     const filtered = datedData.filter(sleep => sleep.hoursSlept === sorted.hoursSlept)
-    return filtered
+    return filtered[0].hoursSlept
   }
 }
 
