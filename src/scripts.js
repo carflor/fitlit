@@ -86,12 +86,14 @@ function displayUserActivityData(activityData, currentUser, today) {
   const userGoalAchievement = document.querySelector('.user-goal-achievement')
   const allUsersWeekAvg = document.querySelector('.all-users-week-avg')
   const currentStairRecord = document.querySelector('.current-stair-record')
+  const userWeekStats = document.querySelector('.user-week-stats')
   
   userGoalAchievement.insertAdjacentHTML('afterbegin', `${activityRepo.getUserStepGoalAchievement(activityData, currentUser, today)}`)
   userNumberStepsToday.insertAdjacentHTML('afterbegin', `Steps Today: ${activityRepo.getUserStepsForDate(activityData, currentUser, today)}`)
   userMinutesActiveToday.insertAdjacentHTML('afterbegin', `Minutes Active Today: ${activityRepo.getUserMinutesActive(activityData, currentUser, today)}`)
   userFlightsOfStairs.insertAdjacentHTML('afterbegin', `Flights of Stairs Today: ${activityRepo.getUserFlightsOfStairs(activityData, currentUser, today)}`)
   displayUserMilesWalked.insertAdjacentHTML('afterbegin', `Miles walked today: ${activityRepo.getMilesByDate(activityData, currentUser, today)}`)
+  userWeekStats.insertAdjacentHTML('afterbegin', `${activityRepo.getUserWeekActivity(activityData, currentUser, today)}`)
   allUsersWeekAvg.insertAdjacentHTML('afterbegin', `All users weekly stats: Number of Steps - ${activityRepo.getAllUsersAvgData(activityData, today)[0]}, Minutes Active - ${activityRepo.getAllUsersAvgData(activityData, today)[1]}, Flights of Stairs - ${activityRepo.getAllUsersAvgData(activityData, today)[2]}`)
   currentStairRecord.insertAdjacentHTML('afterbegin', `Current Stair Record: ${activityRepo.bestStairClimberEver(activityData)}`)
 }
