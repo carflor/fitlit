@@ -17,18 +17,18 @@ class Activity {
   }
 
   // SINGLE USER SECTION
-  getUserStepsForDate(allData, user, date) {
-    const filtered = allData.filter(data => data.userID === user.id)
-    const dateEntry = filtered.find(data => data.date === date)
-    return dateEntry.numSteps
-  }
-
   getMilesByDate(allData, user, date) {
     const filtered = allData.filter(data => data.userID === user.id)
     const dateEntry = filtered.find(data => data.date === date)
     const userMile = 5280 / user.strideLength
     const userDistance = dateEntry.numSteps / userMile
     return Number(userDistance.toFixed(2))
+  }
+  
+  getUserStepsForDate(allData, user, date) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateEntry = filtered.find(data => data.date === date)
+    return dateEntry.numSteps
   }
 
   getUserMinutesActive(allData, user, date) {
