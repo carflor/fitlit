@@ -72,8 +72,8 @@ describe('Activity', function () {
   })
 
   it('should provide avg steps, minutes active and flights of stairs by date for all users', function() {
-    expect(activity.getAllUserAvgData(activityData, yesterday)).to.deep.equal([ 7303, 158, 27 ])
-    expect(activity.getAllUserAvgData(activityData, today)).to.deep.equal([ 6245, 173, 22 ])
+    expect(activity.getAllUsersAvgData(activityData, yesterday)).to.deep.equal([ 7303, 158, 27 ])
+    expect(activity.getAllUsersAvgData(activityData, today)).to.deep.equal([ 6245, 173, 22 ])
   })
 
   it('should find the greatest stair climber amongst all users', function() {
