@@ -37,6 +37,12 @@ class Activity {
     return dateEntry.minutesActive
   }
 
+  getUserFlightsOfStairs(allData, user, date) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateEntry = filtered.find(data => data.date === date)
+    return dateEntry.flightsOfStairs
+  }
+
   getUserAvgMinActiveByWeek(allData, user, date) {
     const filtered = allData.filter(data => data.userID === user.id)
     const finder = filtered.find(data => data.date === date)
