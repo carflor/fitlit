@@ -1,6 +1,5 @@
 'use strict';
 
-let currentUser;
 let userRepo;
 let hydrationRepo;
 let sleepRepo;
@@ -8,7 +7,7 @@ let activityRepo;
 
 function startApp() {
   const today = '2019/06/29'
-  currentUser = new User(pickUser())
+  const currentUser = new User(pickUser())
   userRepo = new UserRepo(userData)
   hydrationRepo = new Hydration(hydrationData)
   sleepRepo = new Sleep(sleepData)
@@ -43,17 +42,18 @@ function displayUserData(user, date) {
 }
 
 function displayUserHydrationData(data, user, date) {
-  // console.log('hydro data', data)
   const userHydrationToday = document.querySelector('.user-hydration-today')
   const userHydrationWeek = document.querySelector('.user-hydration-week')
+  const userAvgHydration = document.querySelector('.user-avg-hydration')
 
-  userHydrationToday.innerText = `Ounces drank today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)}`
-  // console.log(hydrationRepo.getUserWeekHydration(data, user, date))
-  userHydrationWeek.insertAdjacentHTML('afterBegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
+  userHydrationToday.innerText = `Hydration today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)} ounces`
+  userHydrationWeek.insertAdjacentHTML('afterbegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
+  userAvgHydration.insertAdjacentHTML('afterbegin', `Average hydration: ${hydrationRepo.getUserAvgOuncesAllTime(data, user, date)} ounces`)
 }
 
 function fixWeekHydrationDisplay(arr) {
   const fixedArr = []
+  // CHANGE THIS FOR LOOP!!
   for (let i = 0; i < arr.length; i++) {
     fixedArr.push(arr[i].toString().split('').slice(5).join(''))
   }
@@ -67,25 +67,33 @@ function displayUserSleepData(data, user, date) {
   const userWeekSleepQuality = document.querySelector('.user-week-sleep-quality')
   const userAvgHoursSlept = document.querySelector('.user-hours-slept-avg')
   const userAvgSleepQuality = document.querySelector('.user-sleep-quality-avg')
+  const worstSleptToday = document.querySelector('.worst-slept-today')
 
-  userSleepHoursToday.insertAdjacentHTML('afterBegin', `Hours Slept Today: ${sleepRepo.getUserHoursSleptForDate(data, user, date)}`)
-  userSleepQualityToday.insertAdjacentHTML('afterBegin', `Sleep Quality Rating Today: ${sleepRepo.getUserSleepQualityForDate(data, user, date)}/5`)
-  userWeekHoursSlept.insertAdjacentHTML('afterBegin', `Hours Slept Per Day This Week: ${sleepRepo.getUserWeekHoursSlept(data, user, date)}`)
-  userWeekSleepQuality.insertAdjacentHTML('afterBegin', `Sleep Rating Per Day This Week: ${sleepRepo.getUserWeekSleepQuality(data, user, date)}`)
-  userAvgHoursSlept.insertAdjacentHTML('afterBegin', `Avg Sleep Time: ${sleepRepo.getUserAvgSleepHours(data, user)}`)
-  userAvgSleepQuality.insertAdjacentHTML('afterBegin', `Avg Sleep Rating: ${sleepRepo.getUserAvgSleepQuality(data, user)}`)
+  userSleepHoursToday.insertAdjacentHTML('afterbegin', `Hours Slept Today: ${sleepRepo.getUserHoursSleptForDate(data, user, date)}`)
+  userSleepQualityToday.insertAdjacentHTML('afterbegin', `Sleep Quality Rating Today: ${sleepRepo.getUserSleepQualityForDate(data, user, date)}/5`)
+  userWeekHoursSlept.insertAdjacentHTML('afterbegin', `Hours Slept Per Day This Week: ${sleepRepo.getUserWeekHoursSlept(data, user, date)}`)
+  userWeekSleepQuality.insertAdjacentHTML('afterbegin', `Sleep Rating Per Day This Week: ${sleepRepo.getUserWeekSleepQuality(data, user, date)}/5`)
+  userAvgHoursSlept.insertAdjacentHTML('afterbegin', `Avg Sleep Time: ${sleepRepo.getUserAvgSleepHours(data, user)} Hours`)
+  userAvgSleepQuality.insertAdjacentHTML('afterbegin', `Avg Sleep Rating: ${sleepRepo.getUserAvgSleepQuality(data, user)}/5`)
+  worstSleptToday.insertAdjacentHTML('afterbegin', `Worst Slept Today: ${sleepRepo.getWorstSleptPerDate(data, user, date)} hours`)
 }
 
 function displayUserActivityData(activityData, currentUser, today) {
   const userNumberStepsToday = document.querySelector('.user-number-steps-today')
+  const userMinutesActiveToday = document.querySelector('.user-minutes-active-today')
+  const userFlightsOfStairs = document.querySelector('.user-flights-stairs')
   const displayUserMilesWalked = document.querySelector('.display-user-miles-walked')
-  const userComparisonAllUsers = document.querySelector('.user-comparison-all-users')
-  const userWeeklyStats = document.querySelector('.user-weekly-stats')
-  // Did we ever write this functionality?
-  userNumberStepsToday.insertAdjacentHTML('afterbegin', `Steps Today: ${currentUser.numSteps}`)
+  const userGoalAchievement = document.querySelector('.user-goal-achievement')
+  const allUsersWeekAvg = document.querySelector('.all-users-week-avg')
+  const currentStairRecord = document.querySelector('.current-stair-record')
+  
+  userGoalAchievement.insertAdjacentHTML('afterbegin', `${activityRepo.getUserStepGoalAchievement(activityData, currentUser, today)}`)
+  userNumberStepsToday.insertAdjacentHTML('afterbegin', `Steps Today: ${activityRepo.getUserStepsForDate(activityData, currentUser, today)}`)
+  userMinutesActiveToday.insertAdjacentHTML('afterbegin', `Minutes Active Today: ${activityRepo.getUserMinutesActive(activityData, currentUser, today)}`)
+  userFlightsOfStairs.insertAdjacentHTML('afterbegin', `Flights of Stairs Today: ${activityRepo.getUserFlightsOfStairs(activityData, currentUser, today)}`)
   displayUserMilesWalked.insertAdjacentHTML('afterbegin', `Miles walked today: ${activityRepo.getMilesByDate(activityData, currentUser, today)}`)
-  userComparisonAllUsers.insertAdjacentHTML('afterbegin', `Did you meet your goals: ${activityRepo.getUserStepGoalAchievement(activityData, currentUser, today)}`)
-  userWeeklyStats.insertAdjacentHTML('afterBegin', `Your weekly stats: ${activityRepo.getAllUserAvgData(activityData, today)}`)
+  allUsersWeekAvg.insertAdjacentHTML('afterbegin', `All users weekly stats: Number of Steps - ${activityRepo.getAllUsersAvgData(activityData, today)[0]}, Minutes Active - ${activityRepo.getAllUsersAvgData(activityData, today)[1]}, Flights of Stairs - ${activityRepo.getAllUsersAvgData(activityData, today)[2]}`)
+  currentStairRecord.insertAdjacentHTML('afterbegin', `Current Stair Record: ${activityRepo.bestStairClimberEver(activityData)}`)
 }
 
 startApp();

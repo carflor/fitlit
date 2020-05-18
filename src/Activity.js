@@ -24,11 +24,23 @@ class Activity {
     const userDistance = dateEntry.numSteps / userMile
     return Number(userDistance.toFixed(2))
   }
+  
+  getUserStepsForDate(allData, user, date) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateEntry = filtered.find(data => data.date === date)
+    return dateEntry.numSteps
+  }
 
   getUserMinutesActive(allData, user, date) {
     const filtered = allData.filter(data => data.userID === user.id)
     const dateEntry = filtered.find(data => data.date === date)
     return dateEntry.minutesActive
+  }
+
+  getUserFlightsOfStairs(allData, user, date) {
+    const filtered = allData.filter(data => data.userID === user.id)
+    const dateEntry = filtered.find(data => data.date === date)
+    return dateEntry.flightsOfStairs
   }
 
   getUserAvgMinActiveByWeek(allData, user, date) {
@@ -74,7 +86,7 @@ class Activity {
     return keys.map(key => Math.floor(total[key] / numUsers))
   }
 
-  getAllUserAvgData(allData, date) {
+  getAllUsersAvgData(allData, date) {
     const dateData = allData.filter(data => data.date === date)
     const userTotal = dateData.reduce((acc, user) => {
       acc.numSteps += user.numSteps
@@ -93,7 +105,6 @@ class Activity {
     let sorted = allData.sort((a, b) => (b.flightsOfStairs - a.flightsOfStairs))[0]
     return sorted.flightsOfStairs
   }
-
 }
 
 if (typeof module !== 'undefined') {

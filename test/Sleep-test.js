@@ -33,11 +33,11 @@ describe('Sleep', function () {
     expect(sleep.grabDataPerUser()).to.deep.equal(sleep.dataPerUser)
   })
 
-  it('should be able to get the avg sleep hours for a user', function() {
+  it('should get the avg sleep hours for a user', function() {
     expect(sleep.getUserAvgSleepHours(sleepData, user)).to.equal(7)
   })
 
-  it('should be able to calculate the average sleep quality', function() {
+  it('should calculate the average sleep quality', function() {
     expect(sleep.getUserAvgSleepQuality(sleepData, user)).to.equal(2)
   })
 
@@ -45,11 +45,11 @@ describe('Sleep', function () {
     expect(sleep.getUserHoursSleptForDate(sleepData, user, today)).to.equal(4.6)
   })
 
-  it('should be able to get sleep quality for a specific date', function() {
+  it('should get sleep quality for a specific date', function() {
     expect(sleep.getUserSleepQualityForDate(sleepData, user, today)).to.equal(1)
   })
 
-  it('should be able to calculate avg sleep quality for ALL users', function() {
+  it('should calculate avg sleep quality for ALL users', function() {
     expect(sleep.getAllUsersAvgSleepQuality(sleepData)).to.equal(3)
   })
 
@@ -75,25 +75,20 @@ describe('Sleep', function () {
     ])
   })
 
-  it('should return users that avg best sleep for any week', function() {
-    // sleep.getBestUsersSleepQualityByDate(today)
-    expect(sleep.getBestUsersSleepQualityByDate(today)).to.deep.equal([3])
+  it('should get users that avg best sleep for any week', function() {
+    expect(sleep.getBestUsersSleepQualityByDate(sleepData, user, today)).to.deep.equal([3])
   })
 
-  it('should return users that slept the most for a given day', function() {
-    expect(sleep.getUsersMostHoursSleptPerDate(sleepData, today)).to.deep.equal([
+  it('should get users that slept the most for a given day', function() {
+    expect(sleep.getUsersMostHoursSleptPerDate(sleepData, user, today)).to.deep.equal([
       { userID: 2, date: '2019/09/22', hoursSlept: 5.3, sleepQuality: 4.6 },
       { userID: 3, date: '2019/09/22', hoursSlept: 5.3, sleepQuality: 4.4 }
     ])
   })
 
-  it('should return users that slept the least for a given day', function() {
-    expect(sleep.getWorstSleptUserPerDate(sleepData, yesterday)).to.deep.equal([
-      { userID: 3, date: '2019/09/21', hoursSlept: 6.1, sleepQuality: 3.5 }
-    ])
-    expect(sleep.getWorstSleptUserPerDate(sleepData, today)).to.deep.equal([
-      { userID: 1, date: '2019/09/22', hoursSlept: 4.6, sleepQuality: 1.4 }
-    ])
+  it('should get users that slept the least for a given day', function() {
+    expect(sleep.getWorstSleptPerDate(sleepData, user, yesterday)).to.deep.equal(6.1)
+    expect(sleep.getWorstSleptPerDate(sleepData, user, today)).to.deep.equal(4.6)
   })
 
 });
