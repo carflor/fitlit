@@ -81,6 +81,18 @@ describe('Activity', function () {
     expect(activity.getUserStairRecord(activityData, user)).to.equal(44)
   })
 
+  it('should provide user weekly data', function() {
+    expect(activity.getUserWeekActivity(activityData, user, today)).to.deep.equal([
+      '2019/06/16: Steps - 6637, Minutes Active - 175, Stairs - 36',
+      '2019/09/17: Steps - 4901, Minutes Active - 288, Stairs - 10',
+      '2019/09/18: Steps - 9974, Minutes Active - 80, Stairs - 40',
+      '2019/09/19: Steps - 12083, Minutes Active - 218, Stairs - 20',
+      '2019/09/20: Steps - 14000, Minutes Active - 262, Stairs - 17',
+      '2019/09/21: Steps - 5711, Minutes Active - 137, Stairs - 43',
+      '2019/09/22: Steps - 8072, Minutes Active - 239, Stairs - 23'
+    ])
+  })
+
   it('should provide avg steps, minutes active and flights of stairs by date for all users', function() {
     expect(activity.getAllUsersAvgData(activityData, yesterday)).to.deep.equal([ 7303, 158, 27 ])
     expect(activity.getAllUsersAvgData(activityData, today)).to.deep.equal([ 6245, 173, 22 ])
