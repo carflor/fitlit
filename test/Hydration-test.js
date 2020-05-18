@@ -37,8 +37,15 @@ describe('Hydration', function () {
   })
 
   it('should give avg ounces per day for a week', function() {
-    hydration.getUserWeekHydration(hydrationData, user, today)
-    expect(hydration.getUserWeekHydration(hydrationData, user, today).length).to.equal(7)
+    expect(hydration.getUserWeekHydration(hydrationData, user, today)).to.deep.equal([
+      '2019/06/23: 39',
+      '2019/06/24: 61',
+      '2019/06/25: 51',
+      '2019/06/26: 52',
+      '2019/06/27: 29',
+      '2019/06/28: 57',
+      '2019/06/29: 99'
+    ])
   })
 });
 
