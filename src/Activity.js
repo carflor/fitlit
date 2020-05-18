@@ -4,6 +4,7 @@ class Activity {
     this.dataPerUser = this.grabDataPerUser()
   }
 
+  // This is useless!
   grabDataPerUser() {
     let result = this.activityData.reduce((acc, activity) => {
       if (!acc[activity.userID]) {
@@ -19,8 +20,8 @@ class Activity {
   getMilesByDate(allData, user, date) {
     const filtered = allData.filter(data => data.userID === user.id)
     const dateEntry = filtered.find(data => data.date === date)
-    const userMile = 5280/user.strideLength
-    const userDistance = dateEntry.numSteps/userMile
+    const userMile = 5280 / user.strideLength
+    const userDistance = dateEntry.numSteps / userMile
     return Number(userDistance.toFixed(2))
   }
 
@@ -54,7 +55,9 @@ class Activity {
   
   getUserStepGoalWins(allData, user) {
     const filtered = allData.filter(data => data.userID === user.id)
-    const dateWins = filtered.filter(data => data.numSteps > user.dailyStepGoal).map(data => {return data.date})
+    const dateWins = filtered.filter(data => data.numSteps > user.dailyStepGoal).map(data => {
+      return data.date
+    })
     return dateWins
   }
 
@@ -85,7 +88,12 @@ class Activity {
     })
     return this.calculateAvgs(userTotal, dateData.length)
   }
-  
+
+  bestStairClimberEver(allData) {
+    let sorted = allData.sort((a, b) => (b.flightsOfStairs - a.flightsOfStairs))[0]
+    return sorted.flightsOfStairs
+  }
+
 }
 
 if (typeof module !== 'undefined') {
