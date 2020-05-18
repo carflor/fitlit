@@ -44,9 +44,11 @@ function displayUserData(user, date) {
 function displayUserHydrationData(data, user, date) {
   const userHydrationToday = document.querySelector('.user-hydration-today')
   const userHydrationWeek = document.querySelector('.user-hydration-week')
+  const userAvgHydration = document.querySelector('.user-avg-hydration')
 
-  userHydrationToday.innerText = `Ounces drank today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)}`
+  userHydrationToday.innerText = `Hydration today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)} ounces`
   userHydrationWeek.insertAdjacentHTML('afterbegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
+  userAvgHydration.insertAdjacentHTML('afterbegin', `Average hydration: ${hydrationRepo.getUserAvgOuncesAllTime(data, user, date)} ounces`)
 }
 
 function fixWeekHydrationDisplay(arr) {
