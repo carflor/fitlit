@@ -86,7 +86,7 @@ class Activity {
     return keys.map(key => Math.floor(total[key] / numUsers))
   }
 
-  getAllUserAvgData(allData, date) {
+  getAllUsersAvgData(allData, date) {
     const dateData = allData.filter(data => data.date === date)
     const userTotal = dateData.reduce((acc, user) => {
       acc.numSteps += user.numSteps
@@ -105,7 +105,6 @@ class Activity {
     let sorted = allData.sort((a, b) => (b.flightsOfStairs - a.flightsOfStairs))[0]
     return sorted.flightsOfStairs
   }
-
 }
 
 if (typeof module !== 'undefined') {
