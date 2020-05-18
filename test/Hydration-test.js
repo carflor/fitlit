@@ -29,14 +29,15 @@ describe('Hydration', function () {
   })
 
   it('should be able to get the avg ounces for a user today', function() {
-    expect(hydration.getUserAvgOuncesToday(hydrationTestData, user, today)).to.equal(99)
+    expect(hydration.getUserAvgOuncesToday(hydrationData, user, today)).to.equal(99)
   })
 
   it('should be able to get the avg ounces for a user all time', function() {
-    expect(hydration.getUserAvgOuncesAllTime(hydrationTestData, user)).to.equal(59)
+    expect(hydration.getUserAvgOuncesAllTime(hydrationData, user)).to.equal(59)
   })
 
   it('should give avg ounces per day for a week', function() {
+    hydration.getUserWeekHydration(hydrationData, user, today)
     expect(hydration.getUserWeekHydration(hydrationData, user, today).length).to.equal(7)
   })
 });
