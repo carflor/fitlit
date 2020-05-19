@@ -20,7 +20,7 @@ class UserRepo {
     const userFriends = allUsers.reduce((acc, user) => {
       currentUser.friends.forEach(friend => {
         if (user.id === friend) {
-          acc.push(user.name)
+          acc.push(user)
         }
       })
       return acc
