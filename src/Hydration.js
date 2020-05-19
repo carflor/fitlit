@@ -18,15 +18,19 @@ class Hydration {
     return result
   }
   
+  formatHydrationDisplay(weeklyData) {
+    const formattedWeek = weeklyData.map(data => {
+      return `${data.date}: ${data.numOunces}`
+    })
+    return formattedWeek
+  } 
+
   getUserWeekHydration(allData, user, date) {
-    const weekData = []
     const userHydrationData = allData.filter(data => user.id === data.userID)
     const todaysWater = userHydrationData.find(hydration => hydration.date === date)
-    const index = userHydrationData.indexOf(todaysWater)
-    for (let i = 0; i < 7; i++) {
-      weekData.push(`${userHydrationData[index - i].date}  : ${userHydrationData[index - i].numOunces}`)
-    } 
-    return weekData
+    const dateIndex = userHydrationData.indexOf(todaysWater)
+    const weekData = userHydrationData.slice(dateIndex - 6, dateIndex + 1)
+    return this.formatHydrationDisplay(weekData)
   }
 }
 

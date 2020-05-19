@@ -80,6 +80,21 @@ class Activity {
     // does this require the date to be displayed for the record?
   }
 
+  formatActivityDisplay(weeklyData) {
+    const formattedWeek = weeklyData.map(data => {
+      return `${data.date}: Steps - ${data.numSteps}, Minutes Active - ${data.minutesActive}, Stairs - ${data.flightsOfStairs}`
+    })
+    return formattedWeek
+  } 
+
+  getUserWeekActivity(allData, user, date) {
+    const userActivityData = allData.filter(data => user.id === data.userID)
+    const todaysActivity = userActivityData.find(activity => activity.date === date)
+    const dateIndex = userActivityData.indexOf(todaysActivity)
+    let weekData = userActivityData.slice(dateIndex - 6, dateIndex + 1)
+    return this.formatActivityDisplay(weekData)
+  }
+
   // ALL USERS SECTION
   calculateAvgs(total, numUsers) {
     let keys = Object.keys(total)
@@ -104,6 +119,33 @@ class Activity {
   bestStairClimberEver(allData) {
     let sorted = allData.sort((a, b) => (b.flightsOfStairs - a.flightsOfStairs))[0]
     return sorted.flightsOfStairs
+  }
+
+  formatFriendRankings(friendsSort) {
+    const ranking = friendsSort.map(friend => {
+      return `<br>${friend.name}
+      <br>Total Steps: ${friend.numSteps}`
+    })
+    return ranking
+  }
+
+  getFriendsStats(allData, user, date, allUsersArray) {
+    const dateData = allData.filter(data => data.date === date)
+    const friendCrew = dateData.filter(currentUser => user.friends.includes(currentUser.userID) || user.id === currentUser.userID)
+    const match = friendCrew.reduce((acc, friend) => {
+      allUsersArray.forEach(singleUser => {
+        if (singleUser.id === friend.userID) {
+          let friendWithName = {
+            name: singleUser.name,
+            numSteps: friend.numSteps,
+          }
+          acc.push(friendWithName)
+        }
+      })
+      return acc
+    }, [])
+    const sorted = match.sort((a, b) => b.numSteps - a.numSteps)
+    return this.formatFriendRankings(sorted)
   }
 }
 

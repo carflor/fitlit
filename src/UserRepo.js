@@ -4,7 +4,6 @@ class UserRepo {
   }
 
   selectedUser(currentUserId) {
-    // currentUserId needs to be built in dom
     return this.allUsers.find(user => currentUserId === user.id)
   }
 
@@ -14,6 +13,19 @@ class UserRepo {
       return acc
     }, 0)
     return totalStepGoal / this.allUsers.length
+  }
+  
+  getUserFriends(allUsers, currentUserId) {
+    const currentUser = allUsers.find(user => currentUserId === user.id)
+    const userFriends = allUsers.reduce((acc, user) => {
+      currentUser.friends.forEach(friend => {
+        if (user.id === friend) {
+          acc.push(user)
+        }
+      })
+      return acc
+    }, [])
+    return userFriends
   }
 }
 

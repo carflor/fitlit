@@ -97,3 +97,45 @@ main {
 .user-step-goals {
   font-size: 3vh;
 }
+
+.competition-title {
+  font-size: 3vh;
+  width: 20vw;
+  text-align: center;
+  border: .3vh solid black;
+}
+
+.user-friends {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70vh;
+  align-items: center;
+}
+
+.first-ranking {
+  font-size: 3vh;
+  width: 23vw;
+  background: linear-gradient(to bottom right, #FFD700 51%, #DAA520 100%);
+  text-align: center;
+}
+
+.second-ranking {
+  font-size: 2.5vh;
+  width: 23vw;
+  background: linear-gradient(to bottom right, #C0C0C0 3%, #FFFAFA 85%);
+  text-align: center;
+}
+
+.third-ranking {
+  font-size: 2.5vh;
+  width: 23vw;
+  background: linear-gradient(to bottom right, #CD7F32 10%, #D3D3D3 99%);
+  text-align: center;
+}
+
+.fourth-ranking, .fifth-ranking {
+  font-size: 2.5vh;
+  width: 23vw;
+  text-align: center;
+}
