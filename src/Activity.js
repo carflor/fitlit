@@ -120,6 +120,35 @@ class Activity {
     let sorted = allData.sort((a, b) => (b.flightsOfStairs - a.flightsOfStairs))[0]
     return sorted.flightsOfStairs
   }
+
+  formatFriendRankings(friendsSort) {
+    const ranking = friendsSort.map(friend => {
+      return `Current Stats for ${friend.name}:
+      Total Steps - ${friend.numSteps}`
+    })
+    return ranking
+  }
+
+  getFriendsStats(allData, user, date, allUsersArray) {
+    const dateData = allData.filter(data => data.date === date)
+    const friendCrew = dateData.filter(currentUser => user.friends.includes(currentUser.userID) || user.id === currentUser.userID)
+    const match = friendCrew.reduce((acc, friend) => {
+      allUsersArray.forEach(singleUser => {
+        if (singleUser.id === friend.userID) {
+          let friendWithName = {
+            name: singleUser.name,
+            numSteps: friend.numSteps,
+            // flightsOfStairs: friend.flightsOfStairs,
+            // minutesActive: friend.minutesActive
+          }
+          acc.push(friendWithName)
+        }
+      })
+      return acc
+    }, [])
+    const sorted = match.sort((a, b) => b.numSteps - a.numSteps)
+    return this.formatFriendRankings(sorted)
+  }
 }
 
 if (typeof module !== 'undefined') {
