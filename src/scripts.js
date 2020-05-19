@@ -32,14 +32,14 @@ function displayUserData(user, date) {
   const userAddress = document.querySelector('.user-address')
   const userEmail = document.querySelector('.user-email')
   const userStepGoal = document.querySelector('.user-step-goals')
-  const allUsersStepGoals = document.querySelector('.all-users-step-goals')
+  const avgAllUsers = document.querySelector('.avg-all-Users')
 
   userName.innerText = user.name
-  userDate.innerText = `Step Goal for Today: ${date}`
+  userDate.innerText = `Step Goal for Today ${date}`
   userAddress.innerText = user.address
   userEmail.innerText = user.email
   userStepGoal.innerText = `${user.dailyStepGoal} Steps`
-  allUsersStepGoals.innerText = `${userRepo.calculateAvgStepGoalUsers()} Steps`
+  avgAllUsers.insertAdjacentHTML('afterbegin', `Average User Goal ${userRepo.calculateAvgStepGoalUsers()} Steps`)
 }
 
 function displayUserHydrationData(data, user, date) {
