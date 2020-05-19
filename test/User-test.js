@@ -44,7 +44,7 @@ describe('User', function () {
   })
 
   it('should have a property of friends', function () {
-    expect(user.friends).to.deep.equal([2, 4, 3])
+    expect(user.friends).to.deep.equal([2, 3, 4, 5])
   })
 
   it('should only show the first name', function() {
