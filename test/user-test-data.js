@@ -8,8 +8,9 @@ const userTestData = [
     "dailyStepGoal": 10000,
     "friends": [
       2,
+      3,
       4,
-      3
+      5
     ]
   }, 
   {
