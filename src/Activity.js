@@ -123,13 +123,14 @@ class Activity {
 
   formatFriendRankings(friendsSort) {
     const ranking = friendsSort.map(friend => {
-      return `Current Stats for ${friend.name}:
-      Total Steps - ${friend.numSteps}`
+      return `<br>${friend.name}
+      <br>Total Steps: ${friend.numSteps}`
     })
     return ranking
   }
 
   getFriendsStats(allData, user, date, allUsersArray) {
+    console.log(allData)
     const dateData = allData.filter(data => data.date === date)
     const friendCrew = dateData.filter(currentUser => user.friends.includes(currentUser.userID) || user.id === currentUser.userID)
     const match = friendCrew.reduce((acc, friend) => {
@@ -138,8 +139,6 @@ class Activity {
           let friendWithName = {
             name: singleUser.name,
             numSteps: friend.numSteps,
-            // flightsOfStairs: friend.flightsOfStairs,
-            // minutesActive: friend.minutesActive
           }
           acc.push(friendWithName)
         }
