@@ -4,7 +4,6 @@ class UserRepo {
   }
 
   selectedUser(currentUserId) {
-    // currentUserId needs to be built in dom
     return this.allUsers.find(user => currentUserId === user.id)
   }
 
