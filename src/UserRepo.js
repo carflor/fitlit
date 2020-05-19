@@ -15,6 +15,19 @@ class UserRepo {
     }, 0)
     return totalStepGoal / this.allUsers.length
   }
+  
+  getUserFriends(allUsers, currentUserId) {
+    const currentUser = allUsers.find(user => currentUserId === user.id)
+    const userFriends = allUsers.reduce((acc, user) => {
+      currentUser.friends.forEach(friend => {
+        if (user.id === friend) {
+          acc.push(user.name)
+        }
+      })
+      return acc
+    }, [])
+    return userFriends
+  }
 }
 
 if (typeof module !== 'undefined') {
