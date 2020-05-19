@@ -130,7 +130,6 @@ class Activity {
   }
 
   getFriendsStats(allData, user, date, allUsersArray) {
-    console.log(allData)
     const dateData = allData.filter(data => data.date === date)
     const friendCrew = dateData.filter(currentUser => user.friends.includes(currentUser.userID) || user.id === currentUser.userID)
     const match = friendCrew.reduce((acc, friend) => {
