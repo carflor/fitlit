@@ -97,3 +97,30 @@ main {
 .user-step-goals {
   font-size: 3vh;
 }
+
+.competition-title {
+  font-size: 3vh;
+  width: 20vw;
+  text-align: center;
+  border: .3vh solid black;
+}
+
+.user-friends {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70vh;
+  align-items: center;
+}
+
+.first-ranking {
+  background: linear-gradient(to bottom right, #FFD700 51%, #DAA520 100%);
+}
+
+.second-ranking {
+  background: linear-gradient(to top left, #C0C0C0 4%, #D3D3D3 90%);
+}
+
+.third-ranking {
+  background: linear-gradient(to bottom right, #CD7F32 10%, #D3D3D3 99%);
+}
