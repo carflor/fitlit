@@ -100,26 +100,25 @@ function displayUserActivityData(activityData, currentUser, today) {
 }
 
 function displayFriendsData(activityData, currentUser, today, users) {
+  const friendRank = activityRepo.getFriendsStats(activityData, currentUser, today, users)
   const firstRanking = document.querySelector('.first-ranking')
   const secondRanking = document.querySelector('.second-ranking')
   const thirdRanking = document.querySelector('.third-ranking')
   const fourthRanking = document.querySelector('.fourth-ranking')
   const fifthRanking = document.querySelector('.fifth-ranking')
 
-  const friendRank = activityRepo.getFriendsStats(activityData, currentUser, today, users)
-
-  firstRanking.insertAdjacentHTML('afterbegin', `FIRST PLACE:${friendRank[0]}`)
-  secondRanking.insertAdjacentHTML('afterbegin', `SECOND PLACE:${friendRank[1]}`)
-  thirdRanking.insertAdjacentHTML('afterbegin', `THIRD PLACE:${friendRank[2]}`)
+  firstRanking.insertAdjacentHTML('afterbegin', `FIRST PLACE ${friendRank[0]}`)
+  secondRanking.insertAdjacentHTML('afterbegin', `SECOND PLACE ${friendRank[1]}`)
+  thirdRanking.insertAdjacentHTML('afterbegin', `THIRD PLACE ${friendRank[2]}`)
 
   if (friendRank[3] !== undefined) {
-    fourthRanking.insertAdjacentHTML('afterbegin', `FOURTH PLACE:${friendRank[3]}`)
+    fourthRanking.insertAdjacentHTML('afterbegin', `FOURTH PLACE ${friendRank[3]}`)
   } else {
     return 
   }
 
   if (friendRank[4] !== undefined) {
-    fifthRanking.insertAdjacentHTML('afterbegin', `FIFTH PLACE:${friendRank[4]}`)
+    fifthRanking.insertAdjacentHTML('afterbegin', `FIFTH PLACE ${friendRank[4]}`)
   } else {
     return
   }
