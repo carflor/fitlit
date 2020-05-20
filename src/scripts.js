@@ -21,8 +21,8 @@ function startApp() {
 }
 
 function pickUser() {
-  const id = userData[15]
-  // const id = userData[Math.floor(Math.random() * 50)]
+  // const id = userData[15]
+  const id = userData[Math.floor(Math.random() * 50)]
   return id
 }
 

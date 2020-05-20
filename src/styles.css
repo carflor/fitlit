@@ -132,7 +132,7 @@ main {
   align-items: center;
   padding-left: 2vh;
   padding-right: 8vh;
-  background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
+  background: linear-gradient(to bottom right, #0066FF 48%, #101082 117%);
 }
 
 .hydration-title, .activity-title, .sleep-title {
@@ -162,6 +162,7 @@ main {
 
 .title-date {
   font-size: 2.7vh;
+  padding-top: 1vh;
 }
 
 .user-step-goals {
