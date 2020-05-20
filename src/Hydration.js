@@ -20,7 +20,7 @@ class Hydration {
   
   formatHydrationDisplay(weeklyData) {
     const formattedWeek = weeklyData.map(data => {
-      return ` ${data.date.slice(5, 10)} : ${data.numOunces}`
+      return `<br> ${data.date.slice(5, 10)} : ${data.numOunces}`
     })
     return formattedWeek
   } 

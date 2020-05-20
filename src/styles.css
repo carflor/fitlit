@@ -74,10 +74,23 @@ main {
   background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
+
 .hydration-container {
   width: 70vw;
   height: 25vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
+}
+
+.hydration-title, .activity-title, .sleep-title {
+  font-size: 3.5vh;
+}
+
+.user-hydration-week {
+  float: right;
 }
 
 .friends-goals-container {

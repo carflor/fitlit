@@ -48,21 +48,9 @@ function displayUserHydrationData(data, user, date) {
   const userAvgHydration = document.querySelector('.user-avg-hydration')
 
   userHydrationToday.innerText = `Hydration today: ${hydrationRepo.getUserAvgOuncesToday(data, user, date)} ounces`
-  // userHydrationWeek.insertAdjacentHTML('afterbegin', `Ounces drank this week: ${fixWeekHydrationDisplay(hydrationRepo.getUserWeekHydration(data, user, date))}`)
   userHydrationWeek.insertAdjacentHTML('afterbegin', `Ounces drank this week: ${hydrationRepo.getUserWeekHydration(data, user, date)}`)
   userAvgHydration.insertAdjacentHTML('afterbegin', `Average hydration: ${hydrationRepo.getUserAvgOuncesAllTime(data, user, date)} ounces`)
 }
-
-// function fixWeekHydrationDisplay(arr) {
-//   const fixedArr = []
-//   // CHANGE THIS FOR LOOP!!
-//   // arr.forEach((item, index) => {
-//   // })
-//   for (let i = 0; i < arr.length; i++) {
-//     fixedArr.push(arr[i].toString().split('').slice(5).join(''))
-//   }
-//   return fixedArr.toString().split(',').join(', ')
-// }
 
 function displayUserSleepData(data, user, date) {
   const userSleepHoursToday = document.querySelector('.user-hours-slept-today')
