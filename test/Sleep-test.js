@@ -65,14 +65,14 @@ describe('Sleep', function () {
 
   it('should get the user week hours slept', function() {
     expect(sleep.getUserWeekHoursSlept(sleepData, user, today)).to.deep.equal([
-      '2019/09/22  : 4.6',
-      '2019/09/21  : 10.7',
-      '2019/09/20  : 8.6',
-      '2019/09/19  : 9.9',
-      '2019/09/18  : 4.1',
-      '2019/09/17  : 6.3',
-      '2019/09/16  : 8.8'
-    ])
+      '2019/09/16 : 8.8',
+      '2019/09/17 : 6.3',
+      '2019/09/18 : 4.1',
+      '2019/09/19 : 9.9',
+      '2019/09/20 : 8.6',
+      '2019/09/21 : 10.7',
+      '2019/09/22 : 4.6'
+    ] )
   })
 
   it('should get users that avg best sleep for any week', function() {
