@@ -64,10 +64,10 @@ class Sleep {
     const userSleepData = allData.filter(data => user.id === data.userID)
     const todaysSleep = userSleepData.find(sleep => sleep.date === date)
     const index = userSleepData.indexOf(todaysSleep)
-    // maybe use slice instead of damn for loop
-    for (let i = 0; i < 7; i++) {
-      weekSleep.push(`${userSleepData[index - i].date}  : ${userSleepData[index - i].hoursSlept}`)
-    }
+    const weekData = userSleepData.slice(index - 6, index + 1)
+    weekData.forEach(item => {
+      weekSleep.push(`${item.date} : ${item.hoursSlept}`)
+    })
     return weekSleep
   }
 
