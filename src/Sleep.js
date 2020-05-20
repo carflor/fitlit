@@ -15,7 +15,7 @@ class Sleep {
     return result
   }
 
-  // SINGLE USER SECTION
+  // SINGLE USER METHODS
 
   getUserAvgSleepHours(allData, user) {
     const totalUserSleepHours = allData.filter(data => user.id === data.userID)
@@ -52,10 +52,10 @@ class Sleep {
     const userSleepData = allData.filter(data => user.id === data.userID)
     const todaysSleep = userSleepData.find(sleep => sleep.date === date)
     const index = userSleepData.indexOf(todaysSleep)
-    // maybe use slice instead of damn for loop
-    for (let i = 0; i < 7; i++) {
-      weekSleep.push(`${userSleepData[index - i].date}  : ${userSleepData[index - i].sleepQuality}/5`)
-    } 
+    const weekData = userSleepData.slice(index - 6, index + 1)
+    weekData.forEach(item => {
+      weekSleep.push(`${item.date} : ${item.sleepQuality}/5`)
+    })
     return weekSleep
   }
 
@@ -72,6 +72,7 @@ class Sleep {
   }
 
   // ALL USERS METHODS 
+
   getAllUsersAvgSleepQuality(allData) {
     const allUsersAvg = allData.reduce((acc, sleep) => {
       acc += sleep.sleepQuality 
