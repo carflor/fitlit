@@ -22,7 +22,7 @@ class Hydration {
     const formattedWeek = weeklyData.map(data => {
       return `<br> ${data.date.slice(5, 10)} : ${data.numOunces}`
     })
-    return formattedWeek
+    return formattedWeek.join('')
   } 
 
   getUserWeekHydration(allData, user, date) {

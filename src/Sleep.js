@@ -56,7 +56,7 @@ class Sleep {
     weekData.forEach(item => {
       weekSleep.push(`<br> ${item.date.slice(5, 10)} : ${item.sleepQuality}/5`)
     })
-    return weekSleep
+    return weekSleep.join('')
   }
 
   getUserWeekHoursSlept(allData, user, date) {
@@ -68,7 +68,7 @@ class Sleep {
     weekData.forEach(item => {
       weekSleep.push(`<br> ${item.date.slice(5, 10)} : ${item.hoursSlept}`)
     })
-    return weekSleep
+    return weekSleep.join('')
   }
 
   // ALL USERS METHODS 

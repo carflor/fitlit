@@ -82,9 +82,9 @@ class Activity {
 
   formatActivityDisplay(weeklyData) {
     const formattedWeek = weeklyData.map(data => {
-      return ` <br>${data.date.slice(5, 10)} : Steps - ${data.numSteps}, Minutes Active - ${data.minutesActive}, Stairs - ${data.flightsOfStairs}`
+      return ` <br>${data.date.slice(5, 10)} : Steps - ${data.numSteps} | Minutes Active - ${data.minutesActive} | Stairs - ${data.flightsOfStairs}`
     })
-    return formattedWeek
+    return formattedWeek.join('')
   } 
 
   getUserWeekActivity(allData, user, date) {

@@ -77,6 +77,12 @@ main {
   height: 20vh;
   align-items: center;
   display: flex;
+  letter-spacing: .1vh;
+}
+
+.user-week-stats {
+  text-align: left;
+  letter-spacing: .1vh;
 }
 
 .today-activity {
@@ -84,13 +90,7 @@ main {
   flex-direction: column;
   height: 20vh;
   justify-content: space-evenly;
-}
-
-.walking-champ {
-  display: flex;
-  flex-direction: column;
-  height: 20vh;
-  justify-content: space-evenly;
+  letter-spacing: .1vh;
 }
 
 .sleep-container {
@@ -103,11 +103,23 @@ main {
   background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
-.avg-sleep, .today-sleep {
+.user-week-hours-slept {
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.user-week-sleep-quality {
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.today-sleep {
   display: flex;
   flex-direction: column;
   height: 20vh;
   justify-content: space-evenly;
+  font-size: 2.5vh;
+  letter-spacing: .1vh;
   }
 
 .hydration-container {
@@ -119,16 +131,22 @@ main {
   justify-content: space-between;
   align-items: center;
   padding-left: 2vh;
-  padding-right: 2vh;
+  padding-right: 8vh;
   background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
 }
 
 .hydration-title, .activity-title, .sleep-title {
-  font-size: 3.5vh;
+  font-size: 6vh;
 }
 
 .user-hydration-week {
-  float: right;
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.user-hydration-today, .user-avg-hydration {
+  letter-spacing: .1vh;
+  font-size: 2.5vh;
 }
 
 .friends-goals-container {
