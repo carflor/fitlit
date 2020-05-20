@@ -63,25 +63,63 @@ main {
 }
 
 .activity-container {
+  align-items: center;
+  border-radius: 1vh;
+  justify-content: space-around;
   width: 70vw;
   height: 25vh;
+  flex-direction: row;
+  display: flex;
   background: linear-gradient(to bottom right, #FF9933 11%, #FF0000 97%);
 }
 
+.all-users-week-avg {
+  height: 20vh;
+  align-items: center;
+  display: flex;
+}
+
+.today-activity {
+  display:flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-evenly;
+}
+
+.walking-champ {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-evenly;
+}
+
 .sleep-container {
+  display: flex; 
+  align-items: center;
   width: 70vw;
+  justify-content: space-around;
+  border-radius: 1vh;
   height: 25vh;
   background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
+.avg-sleep, .today-sleep {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-evenly;
+  }
 
 .hydration-container {
   width: 70vw;
   height: 25vh;
   display: flex;
+  border-radius: 1vh;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 2vh;
+  padding-right: 2vh;
   background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
 }
 
@@ -95,6 +133,7 @@ main {
 
 .friends-goals-container {
   width: 23vw;
+  border-radius: 1vh;
   height: 84vh;
   background: linear-gradient(to bottom right, #86F4EE 10%, #33CCCC 99%);
 }
