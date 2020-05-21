@@ -8,9 +8,9 @@ We used JavaScript for building the application and we used MOCHA and CHAI for t
 
 
 ## Screenshots of Application
-[Mobile Layout images](https://frontend.turing.io/projects/module-1/assets/ideabox-group/mobile.jpg)
 
-[IMAGE1](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%201.png)
+
+- [IMAGE1](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%201.png)
 screenshots/Screen Shot FitLit 1.png
 
 screenshots/Screen Shot FitLit 2.png
