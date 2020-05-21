@@ -10,7 +10,7 @@ We used JavaScript for building the application and we used MOCHA and CHAI for t
 ## Screenshots of Application
 
 
-- ![IMAGE1](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%201.png)
+![IMAGE1](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%201.png)
 
 
 ## Application URL Link
