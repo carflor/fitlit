@@ -54,9 +54,9 @@ class Sleep {
     const index = userSleepData.indexOf(todaysSleep)
     const weekData = userSleepData.slice(index - 6, index + 1)
     weekData.forEach(item => {
-      weekSleep.push(` ${item.date.slice(5, 10)} : ${item.sleepQuality}/5`)
+      weekSleep.push(`<br> ${item.date.slice(5, 10)} : ${item.sleepQuality}/5`)
     })
-    return weekSleep
+    return weekSleep.join('')
   }
 
   getUserWeekHoursSlept(allData, user, date) {
@@ -66,9 +66,9 @@ class Sleep {
     const index = userSleepData.indexOf(todaysSleep)
     const weekData = userSleepData.slice(index - 6, index + 1)
     weekData.forEach(item => {
-      weekSleep.push(` ${item.date.slice(5, 10)} : ${item.hoursSlept}`)
+      weekSleep.push(`<br> ${item.date.slice(5, 10)} : ${item.hoursSlept}`)
     })
-    return weekSleep
+    return weekSleep.join('')
   }
 
   // ALL USERS METHODS 

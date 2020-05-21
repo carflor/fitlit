@@ -1,19 +1,6 @@
 class Activity {
   constructor(activityData) {
     this.activityData = activityData;
-    this.dataPerUser = this.grabDataPerUser()
-  }
-
-  // This is useless!
-  grabDataPerUser() {
-    let result = this.activityData.reduce((acc, activity) => {
-      if (!acc[activity.userID]) {
-        acc[activity.userID] = []
-      }
-      acc[activity.userID].push(activity)
-      return acc
-    }, {})
-    return result
   }
 
   // SINGLE USER SECTION
@@ -77,14 +64,13 @@ class Activity {
     const filtered = allData.filter(data => data.userID === user.id)
     const sorted = filtered.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0]
     return sorted.flightsOfStairs
-    // does this require the date to be displayed for the record?
   }
 
   formatActivityDisplay(weeklyData) {
     const formattedWeek = weeklyData.map(data => {
-      return ` ${data.date.slice(5, 10)} : Steps - ${data.numSteps}, Minutes Active - ${data.minutesActive}, Stairs - ${data.flightsOfStairs}`
+      return ` <br>${data.date.slice(5, 10)} : Steps - ${data.numSteps} | Minutes Active - ${data.minutesActive} | Stairs - ${data.flightsOfStairs}`
     })
-    return formattedWeek
+    return formattedWeek.join('')
   } 
 
   getUserWeekActivity(allData, user, date) {

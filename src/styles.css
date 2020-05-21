@@ -63,25 +63,95 @@ main {
 }
 
 .activity-container {
+  align-items: center;
+  border-radius: 1vh;
+  justify-content: space-around;
   width: 70vw;
   height: 25vh;
+  flex-direction: row;
+  display: flex;
   background: linear-gradient(to bottom right, #FF9933 11%, #FF0000 97%);
 }
 
+.all-users-week-avg {
+  height: 20vh;
+  align-items: center;
+  display: flex;
+  letter-spacing: .1vh;
+}
+
+.user-week-stats {
+  text-align: left;
+  letter-spacing: .1vh;
+}
+
+.today-activity {
+  display:flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-evenly;
+  letter-spacing: .1vh;
+}
+
 .sleep-container {
+  display: flex; 
+  align-items: center;
   width: 70vw;
+  justify-content: space-around;
+  border-radius: 1vh;
   height: 25vh;
   background: linear-gradient(to bottom right, #FF33CC 3%, #9900CC 93%);
 }
 
+.user-week-hours-slept {
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.user-week-sleep-quality {
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.today-sleep {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-evenly;
+  font-size: 2.5vh;
+  letter-spacing: .1vh;
+  }
+
 .hydration-container {
   width: 70vw;
   height: 25vh;
-  background: linear-gradient(to bottom right, #0066FF 48%, #000099 95%);
+  display: flex;
+  border-radius: 1vh;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2vh;
+  padding-right: 8vh;
+  background: linear-gradient(to bottom right, #0066FF 48%, #101082 117%);
+}
+
+.hydration-title, .activity-title, .sleep-title {
+  font-size: 6vh;
+}
+
+.user-hydration-week {
+  text-align: center;
+  letter-spacing: .2vh;
+}
+
+.user-hydration-today, .user-avg-hydration {
+  letter-spacing: .1vh;
+  font-size: 2.5vh;
 }
 
 .friends-goals-container {
   width: 23vw;
+  border-radius: 1vh;
   height: 84vh;
   background: linear-gradient(to bottom right, #86F4EE 10%, #33CCCC 99%);
 }
@@ -92,6 +162,7 @@ main {
 
 .title-date {
   font-size: 2.7vh;
+  padding-top: 1vh;
 }
 
 .user-step-goals {
