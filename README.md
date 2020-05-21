@@ -11,6 +11,8 @@ We used JavaScript for building the application and we used MOCHA and CHAI for t
 
 screenshots/Screen Shot FitLit 1.png
 
+screenshots/Screen Shot FitLit 2.png
+
 ## Application URL Link
 
 https://carflor.github.io/fitlit/src/index.html
