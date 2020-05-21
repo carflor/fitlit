@@ -10,6 +10,13 @@ We used JavaScript for building the application and we used MOCHA and CHAI for t
 ## Screenshots of Application
 
 
+![IMAGE1](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%201.png)
+
+![IMAGE2](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%202.png)
+
+![IMAGE3](https://github.com/carflor/fitlit/blob/master/screenshots/Screen%20Shot%20FitLit%203.png)
+
+
 ## Application URL Link
 
 https://carflor.github.io/fitlit/src/index.html
