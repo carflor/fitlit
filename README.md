@@ -12,7 +12,7 @@ We used JavaScript for building the application and we used MOCHA and CHAI for t
 
 ## Application URL Link
 
-![](https://carflor.github.io/fitlit/src/index.html)
+[https://carflor.github.io/fitlit/src/index.html]
 
 ### Collaborators 
 - Corbin March
