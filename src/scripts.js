@@ -17,11 +17,9 @@ function startApp() {
   displayUserSleepData(sleepData, currentUser, today)
   displayUserActivityData(activityData, currentUser, today)
   displayFriendsData(activityData, currentUser, today, userData)
-
 }
 
 function pickUser() {
-  // const id = userData[15]
   const id = userData[Math.floor(Math.random() * 50)]
   return id
 }
